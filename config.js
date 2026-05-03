@@ -8,7 +8,7 @@ window.AGRII_CONFIG = {
   GOOGLE_OAUTH_CLIENT_ID: "",
 
   // Required by newer Earth Engine projects. Example: "agri-i-demo-project"
-  GEE_CLOUD_PROJECT_ID: "",
+  GEE_CLOUD_PROJECT_ID: "agri-i-dashboard",
 
   // Not used by this GitHub Pages build. Keep blank to avoid billable Maps API usage.
   GOOGLE_MAPS_API_KEY: "",
