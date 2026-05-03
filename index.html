@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agri-I dMRV Dashboard</title>
+  <link rel="preconnect" href="https://unpkg.com" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQnc8DxUccpEHIi4huKbyxEe1F+yLdo=" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-block">
+        <div class="brand-logo">🌾</div>
+        <div>
+          <div class="brand-title">Agri-I</div>
+          <div class="brand-subtitle">AI-powered dMRV<br/>for Low-Carbon Rice Farming</div>
+        </div>
+      </div>
+      <nav class="side-nav">
+        <a class="nav-item active" href="#"><span>▦</span> Dashboard</a>
+        <a class="nav-item" href="#field-map-card"><span>▱</span> Parcels</a>
+        <a class="nav-item" href="#charts"><span>⌁</span> Monitoring</a>
+        <a class="nav-item" href="#"><span>▤</span> Reports</a>
+        <div class="divider"></div>
+        <a class="nav-item" href="#"><span>◔</span> Alerts <b class="badge">3</b></a>
+        <a class="nav-item" href="#"><span>▧</span> Data & Integrations</a>
+        <a class="nav-item" href="#"><span>◫</span> Methodology</a>
+      </nav>
+      <div class="side-note">
+        <span>🌱</span>
+        <p>Building climate resilience.<br/>Measuring what matters.</p>
+      </div>
+      <div class="team-chip"><span>AG</span><div><b>Agri-I Team</b><small>Admin</small></div></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="hamburger" aria-label="menu">☰</button>
+        <div class="mobile-brand"><span>🌾</span><b>Agri-I</b></div>
+        <div class="top-title">
+          <h1>Dashboard</h1>
+          <p>AWD-based dMRV monitoring for low-carbon rice fields</p>
+        </div>
+        <div class="top-actions">
+          <select id="fieldSelect" class="field-select" aria-label="select field"></select>
+          <button class="ghost-button">Export</button>
+          <button class="icon-button" aria-label="notifications">🔔<span>3</span></button>
+        </div>
+      </header>
+
+      <section class="mobile-hero">
+        <div class="brand-row">
+          <div class="rice-icon">🌾</div>
+          <div><h2 id="mFieldName">Field</h2><p id="mFieldMeta">Field ID · Area</p></div>
+        </div>
+        <div class="status-pill"><span>✓</span><div><b>AWD Monitoring Status</b><em>On Track</em></div></div>
+      </section>
+
+      <section class="kpi-row" id="kpiRow">
+        <article class="kpi-card"><div class="kpi-icon">👥</div><div><p>Participating Farms</p><strong id="kpiFarms">–</strong><small>pilot fields</small></div></article>
+        <article class="kpi-card"><div class="kpi-icon">▦</div><div><p>Monitored Parcels</p><strong id="kpiParcels">–</strong><small>from CSV coordinates</small></div></article>
+        <article class="kpi-card"><div class="kpi-icon">🌿</div><div><p>Managed Hectares</p><strong id="kpiHectares">–</strong><small>demo polygon area</small></div></article>
+        <article class="kpi-card accent"><div class="kpi-icon">CO₂</div><div><p>Estimated CO₂ Reduction</p><strong id="kpiCo2e">–</strong><small>CH₄ × GWP100</small></div></article>
+      </section>
+
+      <section class="dashboard-grid">
+        <section class="map-and-charts">
+          <article class="card map-card" id="field-map-card">
+            <div class="card-head map-head">
+              <div><h2>Satellite View</h2><p id="mapSubtitle">Field boundary from configured polygon</p></div>
+              <span class="live-chip"><i></i> Satellite tiles</span>
+            </div>
+            <div id="fieldMap"></div>
+            <div class="map-note">Satellite imagery is streamed from public map tiles. Replace demo polygon with real parcel GeoJSON.</div>
+          </article>
+
+          <section class="mobile-metrics">
+            <article class="mini-card"><span>📍</span><div><p>Location (Centroid)</p><b id="mLatLon">–</b></div></article>
+            <article class="mini-card green"><span>🍃</span><div><p>Estimated CO₂ Reduction</p><b id="mCo2e">–</b><small>season-to-date demo</small></div></article>
+          </section>
+
+          <section class="chart-grid" id="charts">
+            <article class="card chart-card">
+              <div class="card-head"><div><h2>CH₄ Change Trend <span>(5-day interval)</span></h2><p>Loaded from uploaded CSV; interpolated to a 5-day display grid</p></div></div>
+              <canvas id="ch4Chart" height="145"></canvas>
+            </article>
+            <article class="card chart-card">
+              <div class="card-head"><div><h2>S1 Water Index <span>(NDWI proxy)</span></h2><p>Sentinel-1 SAR proxy; run Earth Engine script for live values</p></div></div>
+              <canvas id="ndwiChart" height="145"></canvas>
+            </article>
+          </section>
+
+          <article class="card table-card">
+            <div class="card-head"><div><h2>Recent Monitored Fields</h2><p>CSV-backed field list</p></div></div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Field ID</th><th>Farm Name</th><th>Area</th><th>AWD Status</th><th>CH₄ Latest</th><th>Water Index</th><th>Last Update</th></tr></thead>
+                <tbody id="fieldTable"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <aside class="details-panel card">
+          <div class="panel-head"><h2>Field Details</h2><span class="active-dot">Active</span></div>
+          <dl>
+            <div><dt>Field ID</dt><dd id="dFieldId">–</dd></div>
+            <div><dt>Farm Name</dt><dd id="dFarmName">–</dd></div>
+            <div><dt>Area</dt><dd id="dArea">–</dd></div>
+            <div><dt>Crop</dt><dd id="dCrop">–</dd></div>
+            <div><dt>AWD Status</dt><dd><span class="status-small">Active</span></dd></div>
+            <div><dt>Latitude</dt><dd id="dLat">–</dd></div>
+            <div><dt>Longitude</dt><dd id="dLon">–</dd></div>
+            <div><dt>Latest CH₄</dt><dd id="dCh4">–</dd></div>
+            <div><dt>Estimated CO₂e</dt><dd id="dCo2e">–</dd></div>
+            <div><dt>Last Update</dt><dd id="dUpdate">–</dd></div>
+            <div><dt>Data Source</dt><dd>CSV, Sentinel-1 proxy, satellite tiles</dd></div>
+          </dl>
+          <button class="primary-button" id="reportButton">Generate MRV Report</button>
+          <p class="panel-note" id="conversionNote">–</p>
+        </aside>
+      </section>
+
+      <nav class="bottom-nav">
+        <a class="active">⌂<span>Dashboard</span></a>
+        <a>▱<span>Fields</span></a>
+        <a>▥<span>Insights</span></a>
+        <a>◔<span>Alerts</span></a>
+        <a>○<span>Profile</span></a>
+      </nav>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
