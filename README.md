@@ -84,3 +84,19 @@ The boundary is saved in browser localStorage, not in a database.
 - Earth Engine access requires a user account with Earth Engine permission and a configured OAuth client ID.
 - For actual MRV use, CH4 unit and baseline methodology must be confirmed.
 - The first map is Esri World Imagery for speed; Sentinel-2 overlay is added after GEE connection.
+
+
+## 2026-05 map loading fix
+
+This build does **not** use Google Maps API keys for the base map. The 500m x 500m AOI is loaded as a single Esri World Imagery export image instead of many small map tiles. This fixes partial / broken tile mosaics in restricted network environments and keeps the demo lightweight.
+
+Minimum Google setup for Sentinel-2 NDWI:
+
+1. Google OAuth Client ID
+2. Earth Engine enabled Cloud Project ID
+
+Do not add service-account JSON, private keys, client secrets, refresh tokens, or unrestricted API keys to GitHub Pages.
+
+## Cost control recommendation
+
+For the GitHub Pages demo, leave GOOGLE_MAPS_API_KEY blank. Earth Engine noncommercial use may be free if the project is verified for noncommercial use, but other Google Cloud services can still generate charges. In Google Cloud Billing, create a budget alert (e.g., $10 / $25 / $50) and restrict/avoid billable APIs. If you later enable Google Maps Platform, create a separate restricted API key with HTTP referrer restrictions for your GitHub Pages origin only and set API quotas.

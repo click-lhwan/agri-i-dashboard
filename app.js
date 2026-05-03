@@ -1,7 +1,7 @@
 const DEFAULT_CONFIG = window.AGRII_CONFIG || {};
-const STORAGE_KEY_CONFIG = 'agrii.runtime.config.v2';
-const STORAGE_KEY_LOGIN = 'agrii.login.profile.v2';
-const STORAGE_KEY_POLYGONS = 'agrii.field.polygons.v2';
+const STORAGE_KEY_CONFIG = 'agrii.runtime.config.v3';
+const STORAGE_KEY_LOGIN = 'agrii.login.profile.v3';
+const STORAGE_KEY_POLYGONS = 'agrii.field.polygons.v3';
 const CH4_GWP100 = Number(DEFAULT_CONFIG.CH4_GWP100 || 27.0);
 
 const state = {
@@ -68,7 +68,6 @@ function bindUiEvents(){
 function setupConfigForm(){
   byId('cfgClientId').value = state.config.GOOGLE_OAUTH_CLIENT_ID || '';
   byId('cfgProjectId').value = state.config.GEE_CLOUD_PROJECT_ID || '';
-  byId('cfgMapsKey').value = state.config.GOOGLE_MAPS_API_KEY || '';
   byId('cfgS2Collection').value = state.config.SENTINEL2_COLLECTION || 'COPERNICUS/S2_SR_HARMONIZED';
 }
 
@@ -86,7 +85,12 @@ function showApp(){
   byId('loginGate').classList.add('hidden');
   byId('appShell').classList.remove('hidden');
   updateUserUi();
-  setTimeout(() => state.map?.invalidateSize(), 250);
+  // The map can be initialized while the app is hidden by the login screen.
+  // Re-render after the shell is visible to prevent broken / partial imagery tiles.
+  requestAnimationFrame(() => {
+    if(state.data) renderAll();
+    setTimeout(() => state.map?.invalidateSize(true), 250);
+  });
 }
 
 function updateUserUi(){
@@ -160,7 +164,6 @@ function saveConfigFromForm(){
     ...state.config,
     GOOGLE_OAUTH_CLIENT_ID: byId('cfgClientId').value.trim(),
     GEE_CLOUD_PROJECT_ID: byId('cfgProjectId').value.trim(),
-    GOOGLE_MAPS_API_KEY: byId('cfgMapsKey').value.trim(),
     SENTINEL2_COLLECTION: byId('cfgS2Collection').value.trim() || 'COPERNICUS/S2_SR_HARMONIZED'
   };
   localStorage.setItem(STORAGE_KEY_CONFIG, JSON.stringify(state.config));
@@ -376,30 +379,69 @@ function renderTable(){
 }
 
 function renderMap(f){
-  const aoiBounds = boundsAround(f.lat, f.lon, Number(state.config.AOI_SIDE_METERS || 500));
+  const aoiMeters = Number(state.config.AOI_SIDE_METERS || 500);
+  const aoiBounds = boundsAround(f.lat, f.lon, aoiMeters);
   if(!state.map){
-    state.map = L.map('fieldMap', { zoomControl:true, attributionControl:false, preferCanvas:true, minZoom: 16, maxZoom: 20, maxBoundsViscosity: 0.95 });
-    state.baseTile = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom:20, maxNativeZoom:19, keepBuffer:1, updateWhenIdle:true, detectRetina:false }).addTo(state.map);
-    L.control.attribution({prefix:false}).addAttribution('Imagery © Esri / Maxar | Field overlay: Agri-I demo').addTo(state.map);
+    state.map = L.map('fieldMap', {
+      zoomControl:true,
+      attributionControl:false,
+      preferCanvas:true,
+      zoomSnap:0.25,
+      zoomDelta:0.25,
+      minZoom: 15,
+      maxZoom: 20,
+      maxBoundsViscosity: 1.0,
+      wheelPxPerZoomLevel: 120
+    });
+    L.control.attribution({prefix:false})
+      .addAttribution('Imagery © Esri / Maxar | AOI overlay: Agri-I demo')
+      .addTo(state.map);
     state.map.on('click', onMapClickDraw);
   }
-  state.map.setMaxBounds(aoiBounds.pad(0.2));
-  state.map.fitBounds(aoiBounds, {padding:[16,16], maxZoom:18});
+
+  // Lock the view to a 500m × 500m AOI and load one static satellite image.
+  // This avoids the broken mosaic / endless tile requests that can happen in restricted networks.
+  state.map.setMaxBounds(aoiBounds.pad(0.05));
+  state.map.fitBounds(aoiBounds, {padding:[8,8], maxZoom:18, animate:false});
+  state.map.setMinZoom(Math.max(15, state.map.getZoom() - 0.75));
+
+  if(state.baseTile) state.map.removeLayer(state.baseTile);
+  const imageryUrl = buildEsriWorldImageryExportUrl(aoiBounds, Number(state.config.AOI_IMAGE_SIZE || 1024));
+  state.baseTile = L.imageOverlay(imageryUrl, aoiBounds, {opacity:1, zIndex:1, interactive:false}).addTo(state.map);
+  state.baseTile.on('load', () => showMapHint(`Satellite image loaded as a single ${aoiMeters}m × ${aoiMeters}m AOI image. Draw Boundary lets you trace the rice field outline manually.`));
+  state.baseTile.on('error', () => showMapHint('Satellite image did not load. Network may block public imagery. The field boundary tools still work.'));
 
   if(state.aoiLayer) state.map.removeLayer(state.aoiLayer);
-  state.aoiLayer = L.rectangle(aoiBounds, {color:'#ffffff', weight:2, dashArray:'6 6', fill:false, opacity:.9}).addTo(state.map);
+  state.aoiLayer = L.rectangle(aoiBounds, {color:'#ffffff', weight:2, dashArray:'6 6', fill:false, opacity:.95, zIndex:5}).addTo(state.map);
   if(state.aoiLabel) state.map.removeLayer(state.aoiLabel);
   const ne = aoiBounds.getNorthEast();
-  state.aoiLabel = L.marker([ne.lat, ne.lng], {icon:L.divIcon({className:'aoi-label', html:`${state.config.AOI_SIDE_METERS || 500}m AOI`, iconSize:null})}).addTo(state.map);
+  state.aoiLabel = L.marker([ne.lat, ne.lng], {icon:L.divIcon({className:'aoi-label', html:`${aoiMeters}m AOI`, iconSize:null})}).addTo(state.map);
 
   drawFieldPolygon(f);
-  setTimeout(() => state.map.invalidateSize(), 120);
+  setTimeout(() => state.map.invalidateSize(true), 120);
+}
+
+function buildEsriWorldImageryExportUrl(bounds, size){
+  const sw = bounds.getSouthWest();
+  const ne = bounds.getNorthEast();
+  const bbox = [sw.lng, sw.lat, ne.lng, ne.lat].map(v => Number(v).toFixed(8)).join(',');
+  const params = new URLSearchParams({
+    bbox,
+    bboxSR: '4326',
+    imageSR: '4326',
+    size: `${size},${size}`,
+    format: 'jpg',
+    transparent: 'false',
+    f: 'image'
+  });
+  return `https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?${params.toString()}`;
 }
 
 function drawFieldPolygon(f){
   if(state.polygonLayer) state.map.removeLayer(state.polygonLayer);
   if(state.fieldLabel) state.map.removeLayer(state.fieldLabel);
-  state.polygonLayer = L.polygon(f.polygon, {color:'#39e979', weight:3, fillColor:'#1baa61', fillOpacity:.34}).addTo(state.map);
+  state.polygonLayer = L.polygon(f.polygon, {color:'#39e979', weight:3, fillColor:'#1baa61', fillOpacity:.34, pane:'overlayPane'}).addTo(state.map);
+  state.polygonLayer.bringToFront();
   const center = polygonCentroid(f.polygon);
   state.fieldLabel = L.tooltip({permanent:false, direction:'center', className:'aoi-label'}).setContent(`${f.id}<br>${f.areaHa} ha`).setLatLng(center).addTo(state.map);
 }
@@ -587,7 +629,7 @@ function addSentinel2RgbLayer(f, collection, geom){
       const url = mapInfo.urlFormat || mapInfo.tile_fetcher?.url_format;
       if(!url) return;
       if(state.geeTile) state.map.removeLayer(state.geeTile);
-      state.geeTile = L.tileLayer(url, {maxZoom:20, opacity:.82, keepBuffer:1}).addTo(state.map);
+      state.geeTile = L.tileLayer(url, {maxZoom:20, opacity:.72, keepBuffer:0, updateWhenIdle:true, bounds: boundsAround(f.lat, f.lon, Number(state.config.AOI_SIDE_METERS || 500))}).addTo(state.map);
       if(state.polygonLayer) state.polygonLayer.bringToFront();
     });
   }catch(err){ console.warn('Sentinel-2 RGB layer failed', err); }

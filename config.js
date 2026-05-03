@@ -10,7 +10,7 @@ window.AGRII_CONFIG = {
   // Required by newer Earth Engine projects. Example: "agri-i-demo-project"
   GEE_CLOUD_PROJECT_ID: "",
 
-  // Optional. Only needed if you decide to switch from Leaflet/Esri tiles to Google Maps JS.
+  // Not used by this GitHub Pages build. Keep blank to avoid billable Maps API usage.
   GOOGLE_MAPS_API_KEY: "",
 
   // Sentinel-2 Surface Reflectance Harmonized collection.
@@ -21,6 +21,9 @@ window.AGRII_CONFIG = {
 
   // Field of view restriction around selected field, in meters.
   AOI_SIDE_METERS: 500,
+
+  // Single static imagery size for the AOI. Higher values look sharper but load slower.
+  AOI_IMAGE_SIZE: 1024,
 
   // CH4 → CO2e conversion factor. AR6 GWP100 for non-fossil methane.
   CH4_GWP100: 27.0,

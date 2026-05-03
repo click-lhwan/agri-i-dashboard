@@ -89,7 +89,7 @@
               </div>
             </div>
             <div id="fieldMap" aria-label="field satellite map"></div>
-            <div class="map-note" id="mapNote">Satellite tiles are limited to a 500m × 500m AOI. Draw Boundary lets you trace the rice field outline manually and saves it in browser localStorage.</div>
+            <div class="map-note" id="mapNote">Satellite image is loaded as one 500m × 500m AOI image to avoid broken map tiles. Draw Boundary lets you trace the rice field outline manually and saves it in browser localStorage.</div>
           </article>
 
           <section class="mobile-metrics">
@@ -167,9 +167,7 @@
       <label>Earth Engine Cloud Project ID
         <input id="cfgProjectId" placeholder="agri-i-demo-project" />
       </label>
-      <label>Google Maps API Key / GEE API Key Area (Optional)
-        <input id="cfgMapsKey" placeholder="Optional; not required for Leaflet demo tiles" />
-      </label>
+      <div class="config-warning">지도 표시는 API key 없이 500m AOI 단일 위성 이미지로 로드합니다. Google Maps API key는 필요하지 않습니다.</div>
       <label>Sentinel-2 Collection
         <input id="cfgS2Collection" placeholder="COPERNICUS/S2_SR_HARMONIZED" />
       </label>
