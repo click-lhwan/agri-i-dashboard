@@ -1,92 +1,86 @@
-# Agri-I AWD dMRV Dashboard MVP
+# Agri-I Sentinel-2 AWD dMRV Dashboard for GitHub Pages
 
-A lightweight responsive dashboard prototype inspired by the provided `ui1.png` and `ui2.png`.
+This is a no-terminal, static GitHub Pages dashboard for Agri-I.
+It is designed for a weak development environment where local terminal execution is not available.
 
-- Mobile viewport: app-card layout similar to `ui1.png`
-- Desktop viewport: SaaS dashboard layout similar to `ui2.png`
-- CH4 chart: generated from the uploaded `data/ch4_predictions.csv`
-- Satellite map: Leaflet + Esri World Imagery public map tiles
-- CO2e conversion: CH4 mass × 27.0, IPCC AR6 GWP100 for non-fossil methane
-- Sentinel-1 water graph: demo S1 water-index proxy for now; replace with real Earth Engine output using the optional script
+## What changed in this version
 
-## Local run
+- Uses **Sentinel-2 NDWI** logic instead of Sentinel-1 proxy.
+- CH4 graph uses only `data/ch4_predictions.csv` and interpolates display points to 5-day intervals.
+- Desktop chart infinite scroll bug is fixed by fixed-height chart containers and `maintainAspectRatio: false`.
+- Map is restricted to a **500m x 500m AOI** around the selected field to reduce tile loading.
+- Field boundary polygon can be drawn manually on the map and saved in browser localStorage.
+- Field GeoJSON polygon can be pasted and applied.
+- Google account login UI is included.
+- Google/GEE config area is included in both `config.js` and the on-page **GEE Config** dialog.
 
-```bash
-cd agri_i_dashboard
-python -m http.server 8000
-```
+## How to deploy on GitHub Pages
 
-Open:
+1. Create a GitHub repository, for example `agri-i-dashboard`.
+2. Upload every file in this folder to the repository root.
+3. Go to **Settings → Pages**.
+4. Set source to **Deploy from a branch**.
+5. Select branch `main` and folder `/root`.
+6. Open the generated URL.
 
-```text
-http://localhost:8000
-```
-
-Do not open `index.html` directly with `file://`, because browsers block local JSON/CSV fetches.
-
-## Update CH4 data
-
-1. Replace `data/ch4_predictions.csv` with a new CSV using the same columns:
-   - `위도`
-   - `경도`
-   - `시작시간`
-   - `종료시간`
-   - `CH4_추정량`
-2. Rebuild JSON:
-
-```bash
-pip install -r requirements.txt
-python scripts/build_data.py
-```
-
-The app displays a 5-day grid by interpolating from the CSV values only. If you add actual 5-day rows later, the graph will naturally become denser and more accurate.
-
-## Sentinel-1 water-index proxy
-
-Sentinel-1 is SAR radar. It does not produce the classic optical NDWI. The dashboard labels the graph as `S1 Water Index (NDWI proxy)`. For actual data:
-
-```bash
-pip install -r requirements.txt
-earthengine authenticate
-python scripts/fetch_sentinel1_water_proxy.py
-```
-
-This script reads the demo polygons from `dashboard_data.json`, queries `COPERNICUS/S1_GRD`, and writes a 5-day S1 water-proxy series back into `dashboard_data.json`.
-
-For a real field, replace the generated demo polygon with the true parcel boundary in GeoJSON or edit the `polygon` field inside `data/dashboard_data.json`.
-
-## Free hosting recommendation
-
-Use **GitHub Pages** for the MVP because this dashboard is static: HTML, CSS, JS, and JSON. There is no server cost and the app stays lightweight.
-
-If live Sentinel-1 computation must run on demand, static hosting is not enough. In that case, the lowest-friction Python options are:
-
-- Streamlit Community Cloud for a public prototype
-- Hugging Face Spaces with a small Gradio/Streamlit app
-- A small scheduled GitHub Actions job that runs `scripts/fetch_sentinel1_water_proxy.py` and commits updated JSON
-
-For now, the recommended lightweight route is:
+## Required files
 
 ```text
-Python scripts locally or GitHub Actions → dashboard_data.json → GitHub Pages static dashboard
+index.html
+styles.css
+app.js
+config.js
+data/ch4_predictions.csv
+.nojekyll
+README.md
 ```
 
-## Files
+## Google / GEE setup
+
+Edit `config.js` or open **GEE Config** in the website UI.
+
+```js
+window.AGRII_CONFIG = {
+  GOOGLE_OAUTH_CLIENT_ID: "YOUR_CLIENT_ID.apps.googleusercontent.com",
+  GEE_CLOUD_PROJECT_ID: "your-earth-engine-project-id",
+  GOOGLE_MAPS_API_KEY: "", // optional in this Leaflet version
+  SENTINEL2_COLLECTION: "COPERNICUS/S2_SR_HARMONIZED"
+};
+```
+
+Do **not** paste service account private keys, client secrets, refresh tokens, or JSON key files into GitHub Pages.
+Client-side Earth Engine apps require users to authenticate with their own Google/Earth Engine account.
+
+## Sentinel-2 NDWI
+
+When Earth Engine is connected, the app queries:
 
 ```text
-index.html                    UI shell
-styles.css                    responsive desktop/mobile styling
-app.js                        data loading, charts, Leaflet map
-/data/ch4_predictions.csv     uploaded CH4 CSV
-/data/dashboard_data.json     generated dashboard data
-/scripts/build_data.py        CSV → JSON builder
-/scripts/fetch_sentinel1_water_proxy.py   optional Earth Engine Sentinel-1 extractor
-requirements.txt              Python dependencies
+COPERNICUS/S2_SR_HARMONIZED
 ```
 
-## Known limitations
+NDWI is computed as:
 
-- The map currently uses rough demo polygons around CSV centroids. Replace these with real parcel boundaries.
-- The current CO2e number assumes the CH4 CSV unit is a mass unit. If your CH4 value is flux or model score, define conversion to kg CH4 first.
-- The estimated reduction currently uses the maximum observed CH4 value per field as a demo baseline. Replace this with a validated baseline/control scenario.
-- The S1 water-index graph is a demo proxy until Earth Engine authentication and real field boundaries are supplied.
+```text
+NDWI = (B3 - B8) / (B3 + B8)
+```
+
+The app computes mean NDWI over the selected field polygon for each 5-day interval.
+If GEE is not connected, the app shows a demo NDWI curve so the UI still works.
+
+## Field boundary
+
+The app starts with a generated demo polygon. For real use:
+
+- click **Draw Boundary** and trace the rice field on the map, then click **Finish**, or
+- paste a GeoJSON Polygon into the Field Details panel and click **Apply GeoJSON**.
+
+The boundary is saved in browser localStorage, not in a database.
+
+## Current limitations
+
+- GitHub Pages has no backend database.
+- Google login is client-side only and does not secure private data.
+- Earth Engine access requires a user account with Earth Engine permission and a configured OAuth client ID.
+- For actual MRV use, CH4 unit and baseline methodology must be confirmed.
+- The first map is Esri World Imagery for speed; Sentinel-2 overlay is added after GEE connection.
