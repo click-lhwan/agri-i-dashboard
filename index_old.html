@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://unpkg.com" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQnc8DxUccpEHIi4huKbyxEe1F+yLdo=" crossorigin="" />
-  <link rel="stylesheet" href="styles.css?v=pan-map-v4" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div id="loginGate" class="login-gate hidden">
@@ -41,7 +41,7 @@
       </nav>
       <div class="side-note">
         <span>🌱</span>
-        <p>500m × 1000m view.<br/>5km × 10km map context.</p>
+        <p>500m × 500m AOI.<br/>Sentinel-2 NDWI ready.</p>
       </div>
       <div class="team-chip"><span id="userAvatar">AG</span><div><b id="userName">Agri-I Team</b><small id="userEmail">Dashboard</small></div></div>
     </aside>
@@ -72,8 +72,8 @@
 
       <section class="kpi-row" id="kpiRow">
         <article class="kpi-card"><div class="kpi-icon">👥</div><div><p>Participating Farms</p><strong id="kpiFarms">–</strong><small>CSV coordinate groups</small></div></article>
-        <article class="kpi-card"><div class="kpi-icon">▦</div><div><p>Monitored Parcels</p><strong id="kpiParcels">–</strong><small>initial 500m × 1000m view</small></div></article>
-        <article class="kpi-card"><div class="kpi-icon">▣</div><div><p>AOI Size</p><strong id="kpiAoi">500m</strong><small>5km × 10km pan context</small></div></article>
+        <article class="kpi-card"><div class="kpi-icon">▦</div><div><p>Monitored Parcels</p><strong id="kpiParcels">–</strong><small>selected 500m AOI</small></div></article>
+        <article class="kpi-card"><div class="kpi-icon">▣</div><div><p>AOI Size</p><strong id="kpiAoi">500m</strong><small>map view locked</small></div></article>
         <article class="kpi-card accent"><div class="kpi-icon">CO₂</div><div><p>Estimated CO₂ Reduction</p><strong id="kpiCo2e">–</strong><small>CH₄ × GWP100</small></div></article>
       </section>
 
@@ -81,7 +81,7 @@
         <section class="map-and-charts">
           <article class="card map-card" id="field-map-card">
             <div class="card-head map-head">
-              <div><h2>Satellite View: 500m × 1000m View</h2><p id="mapSubtitle">Sentinel-2-ready field boundary overlay</p></div>
+              <div><h2>Satellite View: 500m × 500m AOI</h2><p id="mapSubtitle">Sentinel-2-ready field boundary overlay</p></div>
               <div class="map-actions">
                 <button class="small-button" id="drawButton">Draw Boundary</button>
                 <button class="small-button" id="finishDrawButton">Finish</button>
@@ -89,7 +89,7 @@
               </div>
             </div>
             <div id="fieldMap" aria-label="field satellite map"></div>
-            <div class="map-note" id="mapNote">Initial view is 500m × 1000m, with a larger 5000m × 10000m map context for panning. Polygon boundaries are fixed to geographic coordinates.</div>
+            <div class="map-note" id="mapNote">Satellite image is loaded as one 500m × 500m AOI image to avoid broken map tiles. Draw Boundary lets you trace the rice field outline manually and saves it in browser localStorage.</div>
           </article>
 
           <section class="mobile-metrics">
@@ -167,7 +167,7 @@
       <label>Earth Engine Cloud Project ID
         <input id="cfgProjectId" placeholder="agri-i-demo-project" />
       </label>
-      <div class="config-warning">지도 표시는 Google Maps API key 없이 Esri/Leaflet imagery 또는 GEE Sentinel-2 layer로 표시합니다. 초기 뷰는 500m × 1000m, 이동 가능 범위는 5000m × 10000m입니다.</div>
+      <div class="config-warning">지도 표시는 API key 없이 500m AOI 단일 위성 이미지로 로드합니다. Google Maps API key는 필요하지 않습니다.</div>
       <label>Sentinel-2 Collection
         <input id="cfgS2Collection" placeholder="COPERNICUS/S2_SR_HARMONIZED" />
       </label>
@@ -181,12 +181,12 @@
     </form>
   </dialog>
 
-  <script src="config.js?v=pan-map-v4"></script>
+  <script src="config.js"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <!-- Optional Earth Engine JS client. If CDN loading fails, the dashboard still runs in demo mode. -->
   <script src="https://cdn.jsdelivr.net/npm/@google/earthengine/build/ee_api_js.js"></script>
-  <script src="app.js?v=pan-map-v4"></script>
+  <script src="app.js"></script>
 </body>
 </html>

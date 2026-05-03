@@ -14,8 +14,6 @@ const state = {
   polygonLayer: null,
   aoiLayer: null,
   aoiLabel: null,
-  loadBoundsLayer: null,
-  viewBoundsLayer: null,
   drawLayer: null,
   drawPolyline: null,
   fieldLabel: null,
@@ -263,7 +261,7 @@ function buildDataFromCsv(csvText){
   });
 
   const estimatedCo2eReduction = fields.reduce((sum, f) => sum + (f.latest.co2eReduction || 0), 0);
-  return { kpis: { participatingFarms: fields.length, monitoredParcels: fields.length, aoi: `${Number(state.config.VIEW_HEIGHT_METERS || 500)}m × ${Number(state.config.VIEW_WIDTH_METERS || 1000)}m`, estimatedCo2eReduction: round2(estimatedCo2eReduction) }, fields };
+  return { kpis: { participatingFarms: fields.length, monitoredParcels: fields.length, aoi: `${state.config.AOI_SIDE_METERS || 500}m`, estimatedCo2eReduction: round2(estimatedCo2eReduction) }, fields };
 }
 
 function parseDate(value){ return new Date(`${normalizeDate(value)}T00:00:00`); }
@@ -381,8 +379,8 @@ function renderTable(){
 }
 
 function renderMap(f){
-  const viewBounds = viewBoundsAround(f.lat, f.lon);
-  const loadBounds = loadBoundsAround(f.lat, f.lon);
+  const aoiMeters = Number(state.config.AOI_SIDE_METERS || 500);
+  const aoiBounds = boundsAround(f.lat, f.lon, aoiMeters);
   if(!state.map){
     state.map = L.map('fieldMap', {
       zoomControl:true,
@@ -390,57 +388,36 @@ function renderMap(f){
       preferCanvas:true,
       zoomSnap:0.25,
       zoomDelta:0.25,
-      minZoom: 12,
+      minZoom: 15,
       maxZoom: 20,
-      maxBoundsViscosity: 0.85,
+      maxBoundsViscosity: 1.0,
       wheelPxPerZoomLevel: 120
     });
-    state.map.createPane('agriiImageryPane');
-    state.map.getPane('agriiImageryPane').style.zIndex = 200;
-    state.map.createPane('agriiFieldPane');
-    state.map.getPane('agriiFieldPane').style.zIndex = 650;
-    state.map.createPane('agriiDrawPane');
-    state.map.getPane('agriiDrawPane').style.zIndex = 700;
     L.control.attribution({prefix:false})
-      .addAttribution('Imagery © Esri / Maxar or Sentinel-2 via GEE | Boundary overlay: Agri-I demo')
+      .addAttribution('Imagery © Esri / Maxar | AOI overlay: Agri-I demo')
       .addTo(state.map);
     state.map.on('click', onMapClickDraw);
   }
 
-  // Load a large, pannable 5000m × 10000m context, but initially zoom to 500m × 1000m.
-  state.map.setMaxBounds(loadBounds.pad(0.02));
-  if(!state.baseTile){
-    state.baseTile = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 19,
-      minZoom: 12,
-      opacity: 1,
-      pane: 'agriiImageryPane',
-      bounds: loadBounds,
-      keepBuffer: 2,
-      updateWhenIdle: true,
-      crossOrigin: true,
-      attribution: 'Esri World Imagery'
-    }).addTo(state.map);
-    state.baseTile.on('tileerror', () => showMapHint('Some satellite tiles failed to load. You can still draw/fix boundaries; try zooming or reloading if imagery is blank.'));
-  }else{
-    state.baseTile.options.bounds = loadBounds;
-    state.baseTile.redraw();
-  }
+  // Lock the view to a 500m × 500m AOI and load one static satellite image.
+  // This avoids the broken mosaic / endless tile requests that can happen in restricted networks.
+  state.map.setMaxBounds(aoiBounds.pad(0.05));
+  state.map.fitBounds(aoiBounds, {padding:[8,8], maxZoom:18, animate:false});
+  state.map.setMinZoom(Math.max(15, state.map.getZoom() - 0.75));
 
-  state.map.fitBounds(viewBounds, {padding:[8,8], animate:false});
+  if(state.baseTile) state.map.removeLayer(state.baseTile);
+  const imageryUrl = buildEsriWorldImageryExportUrl(aoiBounds, Number(state.config.AOI_IMAGE_SIZE || 1024));
+  state.baseTile = L.imageOverlay(imageryUrl, aoiBounds, {opacity:1, zIndex:1, interactive:false}).addTo(state.map);
+  state.baseTile.on('load', () => showMapHint(`Satellite image loaded as a single ${aoiMeters}m × ${aoiMeters}m AOI image. Draw Boundary lets you trace the rice field outline manually.`));
+  state.baseTile.on('error', () => showMapHint('Satellite image did not load. Network may block public imagery. The field boundary tools still work.'));
 
-  if(state.loadBoundsLayer) state.map.removeLayer(state.loadBoundsLayer);
-  state.loadBoundsLayer = L.rectangle(loadBounds, {color:'#0b6b3a', weight:2, dashArray:'8 8', fill:false, opacity:.55, pane:'agriiFieldPane'}).addTo(state.map);
-  if(state.viewBoundsLayer) state.map.removeLayer(state.viewBoundsLayer);
-  state.viewBoundsLayer = L.rectangle(viewBounds, {color:'#ffffff', weight:2, dashArray:'6 6', fill:false, opacity:.95, pane:'agriiFieldPane'}).addTo(state.map);
   if(state.aoiLayer) state.map.removeLayer(state.aoiLayer);
-  state.aoiLayer = state.viewBoundsLayer;
+  state.aoiLayer = L.rectangle(aoiBounds, {color:'#ffffff', weight:2, dashArray:'6 6', fill:false, opacity:.95, zIndex:5}).addTo(state.map);
   if(state.aoiLabel) state.map.removeLayer(state.aoiLabel);
-  const ne = viewBounds.getNorthEast();
-  state.aoiLabel = L.marker([ne.lat, ne.lng], {icon:L.divIcon({className:'aoi-label', html:`${Number(state.config.VIEW_HEIGHT_METERS || 500)}m × ${Number(state.config.VIEW_WIDTH_METERS || 1000)}m view`, iconSize:null}), pane:'agriiFieldPane'}).addTo(state.map);
+  const ne = aoiBounds.getNorthEast();
+  state.aoiLabel = L.marker([ne.lat, ne.lng], {icon:L.divIcon({className:'aoi-label', html:`${aoiMeters}m AOI`, iconSize:null})}).addTo(state.map);
 
   drawFieldPolygon(f);
-  showMapHint(`Initial view is ${Number(state.config.VIEW_HEIGHT_METERS || 500)}m × ${Number(state.config.VIEW_WIDTH_METERS || 1000)}m. You can pan within the loaded ${Number(state.config.LOAD_HEIGHT_METERS || 5000)}m × ${Number(state.config.LOAD_WIDTH_METERS || 10000)}m map context. Field polygons are fixed to geographic coordinates.`);
   setTimeout(() => state.map.invalidateSize(true), 120);
 }
 
@@ -463,10 +440,10 @@ function buildEsriWorldImageryExportUrl(bounds, size){
 function drawFieldPolygon(f){
   if(state.polygonLayer) state.map.removeLayer(state.polygonLayer);
   if(state.fieldLabel) state.map.removeLayer(state.fieldLabel);
-  state.polygonLayer = L.polygon(f.polygon, {color:'#39e979', weight:4, fillColor:'#1baa61', fillOpacity:.30, pane:'agriiFieldPane', interactive:true}).addTo(state.map);
+  state.polygonLayer = L.polygon(f.polygon, {color:'#39e979', weight:3, fillColor:'#1baa61', fillOpacity:.34, pane:'overlayPane'}).addTo(state.map);
   state.polygonLayer.bringToFront();
   const center = polygonCentroid(f.polygon);
-  state.fieldLabel = L.tooltip({permanent:false, direction:'center', className:'aoi-label', pane:'agriiFieldPane'}).setContent(`${f.id}<br>${f.areaHa} ha`).setLatLng(center).addTo(state.map);
+  state.fieldLabel = L.tooltip({permanent:false, direction:'center', className:'aoi-label'}).setContent(`${f.id}<br>${f.areaHa} ha`).setLatLng(center).addTo(state.map);
 }
 
 function renderCharts(f){
@@ -501,7 +478,7 @@ function startBoundaryDraw(){
   state.isDrawing = true;
   state.drawPoints = [];
   if(state.drawLayer) state.map.removeLayer(state.drawLayer);
-  state.drawLayer = L.layerGroup([], {pane:'agriiDrawPane'}).addTo(state.map);
+  state.drawLayer = L.layerGroup().addTo(state.map);
   showMapHint('Click points along the rice field outline, then press Finish.');
 }
 
@@ -509,10 +486,10 @@ function onMapClickDraw(e){
   if(!state.isDrawing || !state.drawLayer) return;
   const p = [e.latlng.lat, e.latlng.lng];
   state.drawPoints.push(p);
-  L.circleMarker(p, {radius:4, color:'#fff', weight:2, fillColor:'#0b6b3a', fillOpacity:1, pane:'agriiDrawPane'}).addTo(state.drawLayer);
+  L.circleMarker(p, {radius:4, color:'#fff', weight:2, fillColor:'#0b6b3a', fillOpacity:1}).addTo(state.drawLayer);
   if(state.drawPolyline) state.drawLayer.removeLayer(state.drawPolyline);
   if(state.drawPoints.length >= 2){
-    state.drawPolyline = L.polyline(state.drawPoints, {color:'#fff', weight:2, dashArray:'4 4', pane:'agriiDrawPane'}).addTo(state.drawLayer);
+    state.drawPolyline = L.polyline(state.drawPoints, {color:'#fff', weight:2, dashArray:'4 4'}).addTo(state.drawLayer);
   }
 }
 
@@ -645,52 +622,25 @@ function fetchSentinel2Ndwi(f){
 
 function addSentinel2RgbLayer(f, collection, geom){
   try{
-    const loadBounds = loadBoundsAround(f.lat, f.lon);
-    const loadGeom = eeRectangleFromBounds(loadBounds);
-    const image = collection.median().clip(loadGeom);
+    const image = collection.median().clip(geom);
     const rgb = image.visualize({bands:['B4','B3','B2'], min:0, max:3000, gamma:1.2});
     rgb.getMap({}, mapInfo => {
       if(!mapInfo) return;
       const url = mapInfo.urlFormat || mapInfo.tile_fetcher?.url_format;
       if(!url) return;
       if(state.geeTile) state.map.removeLayer(state.geeTile);
-      state.geeTile = L.tileLayer(url, {
-        maxZoom:20,
-        minZoom:12,
-        opacity:.82,
-        pane:'agriiImageryPane',
-        keepBuffer:1,
-        updateWhenIdle:true,
-        bounds: loadBounds
-      }).addTo(state.map);
+      state.geeTile = L.tileLayer(url, {maxZoom:20, opacity:.72, keepBuffer:0, updateWhenIdle:true, bounds: boundsAround(f.lat, f.lon, Number(state.config.AOI_SIDE_METERS || 500))}).addTo(state.map);
       if(state.polygonLayer) state.polygonLayer.bringToFront();
-      if(state.viewBoundsLayer) state.viewBoundsLayer.bringToFront();
-      if(state.loadBoundsLayer) state.loadBoundsLayer.bringToFront();
-      showMapHint('Sentinel-2 RGB layer loaded via Earth Engine. Polygon boundaries remain fixed to map coordinates while panning.');
     });
   }catch(err){ console.warn('Sentinel-2 RGB layer failed', err); }
 }
 
 function boundsAround(lat, lon, sideMeters){
-  return rectBoundsAround(lat, lon, sideMeters, sideMeters);
-}
-function viewBoundsAround(lat, lon){
-  return rectBoundsAround(lat, lon, Number(state.config.VIEW_WIDTH_METERS || 1000), Number(state.config.VIEW_HEIGHT_METERS || 500));
-}
-function loadBoundsAround(lat, lon){
-  return rectBoundsAround(lat, lon, Number(state.config.LOAD_WIDTH_METERS || 10000), Number(state.config.LOAD_HEIGHT_METERS || 5000));
-}
-function rectBoundsAround(lat, lon, widthMeters, heightMeters){
-  const dLat = metersToLat(heightMeters / 2);
-  const dLon = metersToLon(widthMeters / 2, lat);
+  const half = sideMeters / 2;
+  const dLat = metersToLat(half);
+  const dLon = metersToLon(half, lat);
   return L.latLngBounds([lat-dLat, lon-dLon], [lat+dLat, lon+dLon]);
 }
-function eeRectangleFromBounds(bounds){
-  const sw = bounds.getSouthWest();
-  const ne = bounds.getNorthEast();
-  return ee.Geometry.Rectangle([sw.lng, sw.lat, ne.lng, ne.lat], null, false);
-}
-
 function metersToLat(m){ return m / 111320; }
 function metersToLon(m, lat){ return m / (111320 * Math.cos(lat * Math.PI/180)); }
 function polygonCentroid(poly){ const s = poly.reduce((a,p)=>[a[0]+p[0], a[1]+p[1]], [0,0]); return [s[0]/poly.length, s[1]/poly.length]; }
