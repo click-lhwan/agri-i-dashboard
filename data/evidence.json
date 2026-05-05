@@ -1,0 +1,1262 @@
+[
+  {
+    "parcelId": "KR-RICE-001",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-01",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-001",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-01",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-001",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-01",
+    "status": "REVIEWED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-001",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-01",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-001",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-01",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-002",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-02",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-002",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-02",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-002",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-02",
+    "status": "REVIEWED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-002",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-02",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-002",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-02",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-003",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-03",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-003",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-03",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-003",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-03",
+    "status": "REVIEWED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-003",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-03",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-003",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-03",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-004",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-04",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-004",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-04",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-004",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-04",
+    "status": "NEEDS_REVIEW",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-004",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-04",
+    "status": "NEEDS_REVIEW",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-004",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-04",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-005",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-05",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-005",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-05",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-005",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-05",
+    "status": "NEEDS_REVIEW",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-005",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-05",
+    "status": "NEEDS_REVIEW",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-005",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-05",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-006",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-06",
+    "status": "COLLECTED",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-006",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-06",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-006",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-06",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-006",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-06",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-006",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-06",
+    "status": "COLLECTED",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-007",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-07",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-007",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-07",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-007",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-07",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-007",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-07",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-007",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-07",
+    "status": "COLLECTED",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-008",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-08",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-008",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-08",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-008",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-08",
+    "status": "REVIEWED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-008",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-08",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-008",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-08",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-009",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-09",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-009",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-09",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-009",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-09",
+    "status": "REVIEWED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-009",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-09",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-009",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-09",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-010",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-10",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-010",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-10",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-010",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-10",
+    "status": "NEEDS_REVIEW",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-010",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-10",
+    "status": "NEEDS_REVIEW",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-010",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-10",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-011",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-11",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-011",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-11",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-011",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-11",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-011",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-11",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-011",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-11",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-012",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-12",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-012",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-12",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-012",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-12",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-012",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-12",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-012",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-12",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-013",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-13",
+    "status": "COLLECTED",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-013",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-13",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-013",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-13",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-013",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-13",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-013",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-13",
+    "status": "COLLECTED",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-014",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-14",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-014",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-14",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-014",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-14",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-014",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-14",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-014",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-14",
+    "status": "COLLECTED",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-015",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-15",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-015",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-15",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-015",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-15",
+    "status": "REVIEWED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-015",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-15",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-015",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-15",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-016",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-16",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-016",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-16",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-016",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-16",
+    "status": "REVIEWED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-016",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-16",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-016",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-16",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-017",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-17",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-017",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-17",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-017",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-17",
+    "status": "REVIEWED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-017",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-17",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-017",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-17",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-018",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-18",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-018",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-18",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-018",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-18",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-018",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-18",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-018",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-18",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-019",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-19",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-019",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-19",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-019",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-19",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-019",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-19",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-019",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-19",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-020",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-20",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-020",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-20",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-020",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-20",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-020",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-20",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-020",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-20",
+    "status": "COLLECTED",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-021",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-21",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-021",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-21",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-021",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-21",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-021",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-21",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-021",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-21",
+    "status": "COLLECTED",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-022",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-22",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-022",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-22",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-022",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-22",
+    "status": "REVIEWED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-022",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-22",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-022",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-22",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-023",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-23",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-023",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-23",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-023",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-23",
+    "status": "REVIEWED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-023",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-23",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-023",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-23",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-024",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-24",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-024",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-24",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-024",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-24",
+    "status": "REVIEWED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-024",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-24",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-024",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-24",
+    "status": "COLLECTED",
+    "confidence": "HIGH",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-025",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-25",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-025",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-25",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-025",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-25",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-025",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-25",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-025",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-25",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-026",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-01",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-026",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-01",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-026",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-01",
+    "status": "NEEDS_REVIEW",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-026",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-01",
+    "status": "NEEDS_REVIEW",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-026",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-01",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-027",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-02",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-027",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-02",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-027",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-02",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-027",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-02",
+    "status": "MISSING",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-027",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-02",
+    "status": "COLLECTED",
+    "confidence": "MEDIUM",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-028",
+    "evidenceType": "SATELLITE_OBSERVATION",
+    "source": "Sentinel-1/2, Landsat observation",
+    "date": "2026-08-03",
+    "status": "COLLECTED",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-028",
+    "evidenceType": "WEATHER_SERIES",
+    "source": "ERA5 / KMA AWS weather proxy",
+    "date": "2026-08-03",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-028",
+    "evidenceType": "FARMER_ACTIVITY_LOG",
+    "source": "AWD water management activity log",
+    "date": "2026-08-03",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-028",
+    "evidenceType": "FIELD_PHOTO",
+    "source": "Field photo sample card",
+    "date": "2026-08-03",
+    "status": "MISSING",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  },
+  {
+    "parcelId": "KR-RICE-028",
+    "evidenceType": "POLYGON_BOUNDARY",
+    "source": "Parcel GeoJSON polygon",
+    "date": "2026-08-03",
+    "status": "COLLECTED",
+    "confidence": "LOW",
+    "comment": "Prototype evidence item for dMRV data-room."
+  }
+]

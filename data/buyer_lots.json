@@ -1,0 +1,41 @@
+[
+  {
+    "lotId": "LOT-2026-RICE-001",
+    "title": "Gimje Low-Carbon AWD Rice Lot",
+    "region": "Gimje",
+    "volumeTon": 12.5,
+    "parcelIds": [
+      "KR-RICE-001",
+      "KR-RICE-004",
+      "KR-RICE-007",
+      "KR-RICE-010",
+      "KR-RICE-013",
+      "KR-RICE-016",
+      "KR-RICE-019",
+      "KR-RICE-022"
+    ],
+    "awdPeriod": "2026-05-01 ~ 2026-10-12",
+    "estimatedReductionTco2e": 6.32,
+    "reportStatus": "MOCKUP_READY",
+    "buyerUse": "ESG procurement report / PB rice planning / food-service ingredient proposal"
+  },
+  {
+    "lotId": "LOT-2026-RICE-002",
+    "title": "Cheorwon AWD Evidence Rice Lot",
+    "region": "Cheorwon",
+    "volumeTon": 10.8,
+    "parcelIds": [
+      "KR-RICE-002",
+      "KR-RICE-005",
+      "KR-RICE-008",
+      "KR-RICE-011",
+      "KR-RICE-014",
+      "KR-RICE-017",
+      "KR-RICE-020"
+    ],
+    "awdPeriod": "2026-05-15 ~ 2026-10-27",
+    "estimatedReductionTco2e": 6.22,
+    "reportStatus": "MOCKUP_READY",
+    "buyerUse": "School-meal pilot / B2B ingredient sourcing validation"
+  }
+]

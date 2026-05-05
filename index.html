@@ -1,192 +1,74 @@
 <!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agri-I Sentinel-2 AWD dMRV Dashboard</title>
-  <link rel="preconnect" href="https://unpkg.com" />
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQnc8DxUccpEHIi4huKbyxEe1F+yLdo=" crossorigin="" />
-  <link rel="stylesheet" href="styles.css?v=pan-map-v4" />
-</head>
-<body>
-  <div id="loginGate" class="login-gate hidden">
-    <div class="login-card">
-      <div class="brand-mark">🌾</div>
-      <h1>Agri-I</h1>
-      <p>Google 계정으로 로그인하면 대시보드를 볼 수 있습니다. GitHub Pages 정적 사이트라서 보안용 서버 인증은 아니며, 발표용 접근 제어입니다.</p>
-      <div id="googleButton"></div>
-      <button id="demoLoginButton" class="secondary-button">Demo Mode로 보기</button>
-      <small>Google OAuth Client ID를 Config에서 입력하면 Google Sign-In 버튼이 활성화됩니다.</small>
-    </div>
-  </div>
-
-  <div class="app-shell" id="appShell">
-    <aside class="sidebar">
-      <div class="brand-block">
-        <div class="brand-logo">🌾</div>
-        <div>
-          <div class="brand-title">Agri-I</div>
-          <div class="brand-subtitle">Sentinel-2 dMRV<br/>for Low-Carbon Rice Farming</div>
-        </div>
-      </div>
-      <nav class="side-nav">
-        <a class="nav-item active" href="#"><span>▦</span> Dashboard</a>
-        <a class="nav-item" href="#field-map-card"><span>▱</span> Parcels</a>
-        <a class="nav-item" href="#charts"><span>⌁</span> Monitoring</a>
-        <a class="nav-item" href="#"><span>▤</span> Reports</a>
-        <div class="divider"></div>
-        <a class="nav-item" href="#"><span>☁</span> Sentinel-2</a>
-        <a class="nav-item" href="#"><span>◫</span> Methodology</a>
-      </nav>
-      <div class="side-note">
-        <span>🌱</span>
-        <p>500m × 1000m view.<br/>5km × 10km map context.</p>
-      </div>
-      <div class="team-chip"><span id="userAvatar">AG</span><div><b id="userName">Agri-I Team</b><small id="userEmail">Dashboard</small></div></div>
-    </aside>
-
-    <main class="main">
-      <header class="topbar">
-        <button class="hamburger" aria-label="menu">☰</button>
-        <div class="mobile-brand"><span>🌾</span><b>Agri-I</b></div>
-        <div class="top-title">
-          <h1>Dashboard</h1>
-          <p>AWD field monitoring with Sentinel-2 NDWI and CH₄ trend</p>
-        </div>
-        <div class="top-actions">
-          <select id="fieldSelect" class="field-select" aria-label="select field"></select>
-          <button class="ghost-button" id="openConfigButton">GEE Config</button>
-          <button class="ghost-button" id="exportButton">Export</button>
-          <button class="icon-button" id="signOutButton" aria-label="sign out">↩</button>
-        </div>
-      </header>
-
-      <section class="mobile-hero">
-        <div class="brand-row">
-          <div class="rice-icon">🌾</div>
-          <div><h2 id="mFieldName">Field</h2><p id="mFieldMeta">Field ID · Area</p></div>
-        </div>
-        <div class="status-pill"><span>✓</span><div><b>AWD Monitoring Status</b><em id="mAwdStatus">On Track</em></div></div>
-      </section>
-
-      <section class="kpi-row" id="kpiRow">
-        <article class="kpi-card"><div class="kpi-icon">👥</div><div><p>Participating Farms</p><strong id="kpiFarms">–</strong><small>CSV coordinate groups</small></div></article>
-        <article class="kpi-card"><div class="kpi-icon">▦</div><div><p>Monitored Parcels</p><strong id="kpiParcels">–</strong><small>initial 500m × 1000m view</small></div></article>
-        <article class="kpi-card"><div class="kpi-icon">▣</div><div><p>AOI Size</p><strong id="kpiAoi">500m</strong><small>5km × 10km pan context</small></div></article>
-        <article class="kpi-card accent"><div class="kpi-icon">CO₂</div><div><p>Estimated CO₂ Reduction</p><strong id="kpiCo2e">–</strong><small>CH₄ × GWP100</small></div></article>
-      </section>
-
-      <section class="dashboard-grid">
-        <section class="map-and-charts">
-          <article class="card map-card" id="field-map-card">
-            <div class="card-head map-head">
-              <div><h2>Satellite View: 500m × 1000m View</h2><p id="mapSubtitle">Sentinel-2-ready field boundary overlay</p></div>
-              <div class="map-actions">
-                <button class="small-button" id="drawButton">Draw Boundary</button>
-                <button class="small-button" id="finishDrawButton">Finish</button>
-                <button class="small-button" id="resetBoundaryButton">Reset</button>
-              </div>
-            </div>
-            <div id="fieldMap" aria-label="field satellite map"></div>
-            <div class="map-note" id="mapNote">Initial view is 500m × 1000m, with a larger 5000m × 10000m map context for panning. Polygon boundaries are fixed to geographic coordinates.</div>
-          </article>
-
-          <section class="mobile-metrics">
-            <article class="mini-card"><span>📍</span><div><p>Location (Centroid)</p><b id="mLatLon">–</b></div></article>
-            <article class="mini-card green"><span>🍃</span><div><p>Estimated CO₂ Reduction</p><b id="mCo2e">–</b><small>season-to-date demo</small></div></article>
-          </section>
-
-          <section class="chart-grid" id="charts">
-            <article class="card chart-card">
-              <div class="card-head"><div><h2>CH₄ Change Trend <span>(5-day interval)</span></h2><p>Loaded only from uploaded CSV; extend by replacing the CSV</p></div></div>
-              <div class="chart-body"><canvas id="ch4Chart"></canvas></div>
-            </article>
-            <article class="card chart-card">
-              <div class="card-head"><div><h2>Sentinel-2 NDWI Water Level <span>(5-day interval)</span></h2><p id="ndwiSubtitle">Demo NDWI until GEE is connected</p></div></div>
-              <div class="chart-body"><canvas id="ndwiChart"></canvas></div>
-            </article>
-          </section>
-
-          <article class="card table-card">
-            <div class="card-head"><div><h2>Recent Monitored Fields</h2><p>CSV-backed field list</p></div></div>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>Field ID</th><th>Farm Name</th><th>Area</th><th>AWD Status</th><th>CH₄ Latest</th><th>NDWI Latest</th><th>Last Update</th></tr></thead>
-                <tbody id="fieldTable"></tbody>
-              </table>
-            </div>
-          </article>
-        </section>
-
-        <aside class="details-panel card">
-          <div class="panel-head"><h2>Field Details</h2><span class="active-dot" id="geeStatusChip">Offline demo</span></div>
-          <dl>
-            <div><dt>Field ID</dt><dd id="dFieldId">–</dd></div>
-            <div><dt>Farm Name</dt><dd id="dFarmName">–</dd></div>
-            <div><dt>Area</dt><dd id="dArea">–</dd></div>
-            <div><dt>AWD Status</dt><dd><span class="status-small" id="dAwdStatus">Active</span></dd></div>
-            <div><dt>Latitude</dt><dd id="dLat">–</dd></div>
-            <div><dt>Longitude</dt><dd id="dLon">–</dd></div>
-            <div><dt>Latest CH₄</dt><dd id="dCh4">–</dd></div>
-            <div><dt>Estimated CO₂e</dt><dd id="dCo2e">–</dd></div>
-            <div><dt>Latest NDWI</dt><dd id="dNdwi">–</dd></div>
-            <div><dt>Data Source</dt><dd id="dDataSource">CSV + local demo NDWI</dd></div>
-            <div><dt>Last Update</dt><dd id="dUpdate">–</dd></div>
-          </dl>
-          <button class="primary-button" id="loadGeeButton">Load Sentinel-2 NDWI</button>
-          <button class="secondary-button full" id="copyGeojsonButton">Copy Boundary GeoJSON</button>
-          <div class="geojson-box">
-            <label for="geojsonInput">Paste Field GeoJSON Polygon</label>
-            <textarea id="geojsonInput" rows="4" placeholder='{"type":"Feature","geometry":{"type":"Polygon","coordinates":[...]}}'></textarea>
-            <button class="small-button" id="applyGeojsonButton">Apply GeoJSON</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Agri-I AWD 기반 저탄소농업 dMRV 운영 대시보드 프로토타입" />
+    <title>Agri-I | AWD dMRV Dashboard</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2300482a'/%3E%3Cpath d='M16 43c11-1 23-10 30-28 2 20-7 33-26 37' fill='none' stroke='%23f3c54a' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M22 45c5-10 9-17 18-25' fill='none' stroke='%23a6d86e' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Agri-I navigation">
+        <div class="brand" data-route="#/">
+          <div class="brand-mark" aria-hidden="true">🌾</div>
+          <div>
+            <div class="brand-title">Agri-I</div>
+            <div class="brand-subtitle">AWD dMRV<br />for Low-Carbon Rice</div>
           </div>
-          <p class="panel-note" id="conversionNote">–</p>
-        </aside>
-      </section>
+        </div>
 
-      <nav class="bottom-nav">
-        <a class="active">⌂<span>Dashboard</span></a>
-        <a>▱<span>Fields</span></a>
-        <a>▥<span>Insights</span></a>
-        <a>◔<span>Alerts</span></a>
-        <a>○<span>Profile</span></a>
-      </nav>
-    </main>
-  </div>
+        <nav class="nav-list" id="navList">
+          <a href="#/dashboard" data-route="dashboard"><span>▦</span> Dashboard</a>
+          <a href="#/parcels" data-route="parcels"><span>▱</span> Parcels</a>
+          <a href="#/monitoring" data-route="monitoring"><span>⌁</span> Monitoring</a>
+          <a href="#/evidence" data-route="evidence"><span>☷</span> Evidence</a>
+          <a href="#/buyer-report" data-route="buyer-report"><span>▤</span> 바이어 리포트(Mock-Up)</a>
+          <a href="#/passport" data-route="passport"><span>◈</span> Product Passport(Mock-Up)</a>
+        </nav>
 
-  <dialog id="configDialog" class="config-dialog">
-    <form method="dialog" class="config-card">
-      <div class="config-head">
-        <div><h2>Google / GEE Config</h2><p>GitHub Pages에서 동작하는 공개 설정입니다. 비밀키는 넣지 마세요.</p></div>
-        <button class="icon-x" value="cancel">×</button>
-      </div>
-      <label>Google OAuth Client ID
-        <input id="cfgClientId" placeholder="1234567890-xxxx.apps.googleusercontent.com" />
-      </label>
-      <label>Earth Engine Cloud Project ID
-        <input id="cfgProjectId" placeholder="agri-i-demo-project" />
-      </label>
-      <div class="config-warning">지도 표시는 Google Maps API key 없이 Esri/Leaflet imagery 또는 GEE Sentinel-2 layer로 표시합니다. 초기 뷰는 500m × 1000m, 이동 가능 범위는 5000m × 10000m입니다.</div>
-      <label>Sentinel-2 Collection
-        <input id="cfgS2Collection" placeholder="COPERNICUS/S2_SR_HARMONIZED" />
-      </label>
-      <div class="config-actions">
-        <button id="saveConfigButton" type="button" class="primary-button">Save Config</button>
-        <button id="googleLoginButton" type="button" class="secondary-button">Render Google Login</button>
-        <button id="connectGeeButton" type="button" class="secondary-button">Connect Earth Engine</button>
-      </div>
-      <div id="modalGoogleButton" class="google-button-box"></div>
-      <p class="config-note" id="configStatus">Ready.</p>
-    </form>
-  </dialog>
+        <div class="nav-separator"></div>
+        <nav class="nav-list secondary">
+          <a href="#/methodology" data-route="methodology"><span>◎</span> Methodology</a>
+          <a href="#/readme" data-route="readme"><span>ⓘ</span> Guide</a>
+        </nav>
 
-  <script src="config.js?v=pan-map-v4"></script>
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <!-- Optional Earth Engine JS client. If CDN loading fails, the dashboard still runs in demo mode. -->
-  <script src="https://cdn.jsdelivr.net/npm/@google/earthengine/build/ee_api_js.js"></script>
-  <script src="app.js?v=pan-map-v4"></script>
-</body>
+        <div class="side-card">
+          <strong>🌱 30ha pilot mode</strong>
+          <span>Demo data only. No server, no DB, no API key.</span>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar">AI</div>
+          <div>
+            <strong>Agri-I Team</strong>
+            <span>demo@agri-i.local</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">AWD 기반 저탄소농업 dMRV 운영 대시보드</p>
+            <h1 id="pageTitle">Dashboard</h1>
+          </div>
+          <div class="top-actions">
+            <label class="scenario-picker">
+              <span>Scenario</span>
+              <select id="scenarioSelect" aria-label="Scenario select"></select>
+            </label>
+            <button class="btn ghost" id="resetDemoBtn" type="button">Reset demo</button>
+          </div>
+        </header>
+        <section id="app" class="page-root" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
 </html>

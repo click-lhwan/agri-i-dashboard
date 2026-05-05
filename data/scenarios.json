@@ -1,0 +1,38 @@
+[
+  {
+    "id": "pilot30",
+    "name": "30ha 실증",
+    "farmers": 12,
+    "parcels": 28,
+    "areaHa": 33.9,
+    "buyerLots": 2,
+    "awdRate": 76,
+    "estimatedReductionTco2e": 24.2,
+    "evidenceRate": 68,
+    "revenuePotential": "바이어 1곳·자문 파트너 1곳 확보 목표"
+  },
+  {
+    "id": "scale300",
+    "name": "300ha 사업화",
+    "farmers": 120,
+    "parcels": 280,
+    "areaHa": 300,
+    "buyerLots": 18,
+    "awdRate": 78,
+    "estimatedReductionTco2e": 128.4,
+    "evidenceRate": 72,
+    "revenuePotential": "SaaS 5곳·반복구매 바이어 3곳 목표"
+  },
+  {
+    "id": "growth2000",
+    "name": "2,000ha 확장",
+    "farmers": 820,
+    "parcels": 1900,
+    "areaHa": 2000,
+    "buyerLots": 96,
+    "awdRate": 81,
+    "estimatedReductionTco2e": 856.0,
+    "evidenceRate": 75,
+    "revenuePotential": "바이오차 MRV·탄소크레딧 준비 단계"
+  }
+]
