@@ -1,11 +1,11 @@
 {
   "name": "agri-i-awd-dmrv-dashboard",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "Static GitHub Pages prototype for Agri-I AWD dMRV dashboard. No server, no database, no API key.",
+  "description": "Feedback build: CSV-driven Agri-I AWD dMRV dashboard for GitHub Pages. No server, no database, no required API key.",
   "scripts": {
     "start": "python3 -m http.server 5173",
-    "check": "node --check assets/js/data.js && node --check assets/js/app.js"
+    "check": "node --check assets/js/gee-config.js && node --check assets/js/data.js && node --check assets/js/app.js"
   },
   "license": "MIT"
 }

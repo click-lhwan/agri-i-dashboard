@@ -1,0 +1,13 @@
+﻿month,normalTemperatureC,previousYearTemperatureC,normalRainfallMm,previousYearRainfallMm,source,dataPath
+1,-1.1,-0.4,22,18,Demo Korea climate summary CSV; replace with KMA climate normals/ASOS or ERA5 aggregation,data/korea_climate_summary.csv
+2,1.2,2.1,28,35,Demo Korea climate summary CSV; replace with KMA climate normals/ASOS or ERA5 aggregation,data/korea_climate_summary.csv
+3,6.5,7.3,47,52,Demo Korea climate summary CSV; replace with KMA climate normals/ASOS or ERA5 aggregation,data/korea_climate_summary.csv
+4,12.5,13.2,72,69,Demo Korea climate summary CSV; replace with KMA climate normals/ASOS or ERA5 aggregation,data/korea_climate_summary.csv
+5,17.8,18.1,102,95,Demo Korea climate summary CSV; replace with KMA climate normals/ASOS or ERA5 aggregation,data/korea_climate_summary.csv
+6,21.9,22.7,158,170,Demo Korea climate summary CSV; replace with KMA climate normals/ASOS or ERA5 aggregation,data/korea_climate_summary.csv
+7,24.9,25.8,285,312,Demo Korea climate summary CSV; replace with KMA climate normals/ASOS or ERA5 aggregation,data/korea_climate_summary.csv
+8,25.6,26.2,274,241,Demo Korea climate summary CSV; replace with KMA climate normals/ASOS or ERA5 aggregation,data/korea_climate_summary.csv
+9,20.9,21.3,162,183,Demo Korea climate summary CSV; replace with KMA climate normals/ASOS or ERA5 aggregation,data/korea_climate_summary.csv
+10,14.6,15.1,51,63,Demo Korea climate summary CSV; replace with KMA climate normals/ASOS or ERA5 aggregation,data/korea_climate_summary.csv
+11,7.6,8.2,45,38,Demo Korea climate summary CSV; replace with KMA climate normals/ASOS or ERA5 aggregation,data/korea_climate_summary.csv
+12,1.0,1.5,27,31,Demo Korea climate summary CSV; replace with KMA climate normals/ASOS or ERA5 aggregation,data/korea_climate_summary.csv

@@ -4,661 +4,60 @@
     {
       "type": "Feature",
       "properties": {
-        "parcelId": "KR-RICE-001",
+        "parcelId": "FIELD-001",
+        "serial": "001",
         "farmerCode": "F-001",
-        "region": "Gimje",
-        "farmName": "Gimje AWD Plot 01",
-        "areaHa": 0.84,
-        "crop": "rice",
-        "status": "AWD_GOOD",
-        "awdScore": 92,
-        "evidenceRate": 83,
-        "buyerCandidate": false,
-        "lat": 35.795765,
-        "lon": 126.864577,
-        "latestCh4CsvUnits": 12.45,
-        "latestNdwi": 0.02,
-        "baselineTco2e": 2.33,
-        "estimatedReductionTco2e": 0.96,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-01",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.86315600342493,
-              35.79461905273166
-            ],
-            [
-              126.86585514050925,
-              35.794848181516414
-            ],
-            [
-              126.86599720035579,
-              35.796910340579146
-            ],
-            [
-              126.8632270333482,
-              35.79679577618677
-            ],
-            [
-              126.86315600342493,
-              35.79461905273166
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-002",
-        "farmerCode": "F-002",
-        "region": "Cheorwon",
-        "farmName": "Cheorwon AWD Plot 02",
-        "areaHa": 1.08,
-        "crop": "rice",
-        "status": "AWD_GOOD",
-        "awdScore": 89,
-        "evidenceRate": 91,
-        "buyerCandidate": true,
-        "lat": 35.796178,
-        "lon": 126.869167,
-        "latestCh4CsvUnits": 10.6,
-        "latestNdwi": 0.25,
-        "baselineTco2e": 2.96,
-        "estimatedReductionTco2e": 1.19,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-02",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.86755643414617,
-              35.79487940690114
-            ],
-            [
-              126.87061696792314,
-              35.79513921452227
-            ],
-            [
-              126.87077804864825,
-              35.797477483112495
-            ],
-            [
-              126.86763697450873,
-              35.79734757930193
-            ],
-            [
-              126.86755643414617,
-              35.79487940690114
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-003",
-        "farmerCode": "F-003",
-        "region": "Icheon",
-        "farmName": "Icheon AWD Plot 03",
-        "areaHa": 1.43,
-        "crop": "rice",
-        "status": "AWD_GOOD",
-        "awdScore": 81,
-        "evidenceRate": 84,
-        "buyerCandidate": true,
-        "lat": 35.796121,
-        "lon": 126.874509,
-        "latestCh4CsvUnits": 7.7,
-        "latestNdwi": 0.31,
-        "baselineTco2e": 3.21,
-        "estimatedReductionTco2e": 1.17,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-03",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.87265503887868,
-              35.794625878732084
-            ],
-            [
-              126.87617674666751,
-              35.79492483525066
-            ],
-            [
-              126.87636209970903,
-              35.797615443917856
-            ],
-            [
-              126.87274771539943,
-              35.79746596565857
-            ],
-            [
-              126.87265503887868,
-              35.794625878732084
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-004",
-        "farmerCode": "F-004",
-        "region": "Gimje",
-        "farmName": "Gimje AWD Plot 04",
-        "areaHa": 1.53,
-        "crop": "rice",
-        "status": "WATCH",
-        "awdScore": 66,
-        "evidenceRate": 68,
-        "buyerCandidate": true,
-        "lat": 35.795846,
-        "lon": 126.879898,
-        "latestCh4CsvUnits": 6.98,
-        "latestNdwi": 0.12,
-        "baselineTco2e": 3.44,
-        "estimatedReductionTco2e": 1.02,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-04",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.8779809225103,
-              35.79429966924056
-            ],
-            [
-              126.88162368633054,
-              35.79460890216248
-            ],
-            [
-              126.88181541074213,
-              35.79739199845977
-            ],
-            [
-              126.8780767847161,
-              35.79723738199881
-            ],
-            [
-              126.8779809225103,
-              35.79429966924056
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-005",
-        "farmerCode": "F-005",
-        "region": "Cheorwon",
-        "farmName": "Cheorwon AWD Plot 05",
-        "areaHa": 0.86,
-        "crop": "rice",
-        "status": "WATCH",
-        "awdScore": 66,
-        "evidenceRate": 78,
-        "buyerCandidate": false,
-        "lat": 35.795898,
-        "lon": 126.884805,
-        "latestCh4CsvUnits": 11.18,
-        "latestNdwi": 0.43,
-        "baselineTco2e": 1.96,
-        "estimatedReductionTco2e": 0.58,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-05",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.88336785712846,
-              35.794738755128435
-            ],
-            [
-              126.88609893777539,
-              35.794970595590826
-            ],
-            [
-              126.88624267886206,
-              35.79705715975231
-            ],
-            [
-              126.8834397276718,
-              35.79694123952112
-            ],
-            [
-              126.88336785712846,
-              35.794738755128435
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-006",
-        "farmerCode": "F-006",
-        "region": "Icheon",
-        "farmName": "Icheon AWD Plot 06",
-        "areaHa": 1.26,
+        "region": "전남 해남권",
+        "regionEn": "Haenam cluster",
+        "farmName": "전남 해남권 AWD 분석 부지 001",
+        "areaHa": 0.5,
+        "footprint": "100m x 50m demo footprint",
         "crop": "rice",
         "status": "RISK",
-        "awdScore": 31,
-        "evidenceRate": 36,
-        "buyerCandidate": true,
-        "lat": 35.796462,
-        "lon": 126.890539,
-        "latestCh4CsvUnits": 9.93,
-        "latestNdwi": 0.17,
-        "baselineTco2e": 3.34,
-        "estimatedReductionTco2e": 0.47,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-06",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.8887987180822,
-              35.79505909785433
-            ],
-            [
-              126.89210447238341,
-              35.79533972215834
-            ],
-            [
-              126.89227845945189,
-              35.79786534089441
-            ],
-            [
-              126.88888571161644,
-              35.797725028742406
-            ],
-            [
-              126.8887987180822,
-              35.79505909785433
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-007",
-        "farmerCode": "F-007",
-        "region": "Gimje",
-        "farmName": "Gimje AWD Plot 07",
-        "areaHa": 1.27,
-        "crop": "rice",
-        "status": "MISSING",
-        "awdScore": 28,
-        "evidenceRate": 20,
-        "buyerCandidate": true,
-        "lat": 35.796381,
-        "lon": 126.895447,
-        "latestCh4CsvUnits": 7.1,
-        "latestNdwi": -0.08,
-        "baselineTco2e": 2.86,
-        "estimatedReductionTco2e": 0.36,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-07",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.89370040282411,
-              35.79497237779893
-            ],
-            [
-              126.8970192492728,
-              35.795254113490664
-            ],
-            [
-              126.89719392540168,
-              35.79778973471632
-            ],
-            [
-              126.89378774088854,
-              35.79764886687045
-            ],
-            [
-              126.89370040282411,
-              35.79497237779893
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-008",
-        "farmerCode": "F-008",
-        "region": "Cheorwon",
-        "farmName": "Cheorwon AWD Plot 08",
-        "areaHa": 1.32,
-        "crop": "rice",
-        "status": "AWD_GOOD",
-        "awdScore": 80,
-        "evidenceRate": 89,
-        "buyerCandidate": true,
-        "lat": 35.801119,
-        "lon": 126.864191,
-        "latestCh4CsvUnits": 8.73,
-        "latestNdwi": 0.36,
-        "baselineTco2e": 3.34,
-        "estimatedReductionTco2e": 1.2,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-08",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.8624104999172,
-              35.79968260710597
-            ],
-            [
-              126.86579404731602,
-              35.799969835238294
-            ],
-            [
-              126.86597212875806,
-              35.802554888429235
-            ],
-            [
-              126.86249954063823,
-              35.802411274363074
-            ],
-            [
-              126.8624104999172,
-              35.79968260710597
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-009",
-        "farmerCode": "F-009",
-        "region": "Icheon",
-        "farmName": "Icheon AWD Plot 09",
-        "areaHa": 1.08,
-        "crop": "rice",
-        "status": "AWD_GOOD",
-        "awdScore": 93,
-        "evidenceRate": 85,
-        "buyerCandidate": false,
-        "lat": 35.800986,
-        "lon": 126.869475,
-        "latestCh4CsvUnits": 7.13,
-        "latestNdwi": -0.22,
-        "baselineTco2e": 2.79,
-        "estimatedReductionTco2e": 1.17,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-09",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.86786460749106,
-              35.79968668004327
-            ],
-            [
-              126.87092514126803,
-              35.79994648766441
-            ],
-            [
-              126.87108622199314,
-              35.80228475625463
-            ],
-            [
-              126.86794514785362,
-              35.80215485244406
-            ],
-            [
-              126.86786460749106,
-              35.79968668004327
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-010",
-        "farmerCode": "F-010",
-        "region": "Gimje",
-        "farmName": "Gimje AWD Plot 10",
-        "areaHa": 0.85,
-        "crop": "rice",
-        "status": "AWD_GOOD",
-        "awdScore": 87,
-        "evidenceRate": 75,
-        "buyerCandidate": true,
-        "lat": 35.800408,
-        "lon": 126.874948,
-        "latestCh4CsvUnits": 9.69,
-        "latestNdwi": 0.13,
-        "baselineTco2e": 2.37,
-        "estimatedReductionTco2e": 0.93,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-10",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.87351929382211,
-              35.79925516195927
-            ],
-            [
-              126.87623444966478,
-              35.7994856505707
-            ],
-            [
-              126.87637735260387,
-              35.80156004807359
-            ],
-            [
-              126.87359074529165,
-              35.80144480376788
-            ],
-            [
-              126.87351929382211,
-              35.79925516195927
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-011",
-        "farmerCode": "F-011",
-        "region": "Cheorwon",
-        "farmName": "Cheorwon AWD Plot 11",
-        "areaHa": 1.38,
-        "crop": "rice",
-        "status": "WATCH",
-        "awdScore": 61,
-        "evidenceRate": 54,
-        "buyerCandidate": true,
-        "lat": 35.800462,
-        "lon": 126.879645,
-        "latestCh4CsvUnits": 13.92,
-        "latestNdwi": 0.37,
-        "baselineTco2e": 3.51,
-        "estimatedReductionTco2e": 0.96,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-11",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.87782434272671,
-              35.798993493101364
-            ],
-            [
-              126.88128393439337,
-              35.79928717660448
-            ],
-            [
-              126.8814660181653,
-              35.801930328132485
-            ],
-            [
-              126.87791538461268,
-              35.80178348638093
-            ],
-            [
-              126.87782434272671,
-              35.798993493101364
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-012",
-        "farmerCode": "F-012",
-        "region": "Icheon",
-        "farmName": "Icheon AWD Plot 12",
-        "areaHa": 1.32,
-        "crop": "rice",
-        "status": "WATCH",
-        "awdScore": 73,
+        "awdScoreExample": 55,
+        "awdScoreTag": "for example",
         "evidenceRate": 58,
-        "buyerCandidate": true,
-        "lat": 35.801127,
-        "lon": 126.885054,
-        "latestCh4CsvUnits": 11.77,
-        "latestNdwi": 0.32,
-        "baselineTco2e": 3.53,
-        "estimatedReductionTco2e": 1.16,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-12",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.88327306250116,
-              35.79969039443173
-            ],
-            [
-              126.88665660989997,
-              35.79997762256405
-            ],
-            [
-              126.88683469134202,
-              35.80256267575499
-            ],
-            [
-              126.88336210322218,
-              35.80241906168883
-            ],
-            [
-              126.88327306250116,
-              35.79969039443173
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-013",
-        "farmerCode": "F-001",
-        "region": "Gimje",
-        "farmName": "Gimje AWD Plot 13",
-        "areaHa": 1.31,
-        "crop": "rice",
-        "status": "RISK",
-        "awdScore": 32,
-        "evidenceRate": 43,
         "buyerCandidate": false,
-        "lat": 35.801101,
-        "lon": 126.890297,
-        "latestCh4CsvUnits": 11.54,
-        "latestNdwi": -0.17,
-        "baselineTco2e": 3.44,
-        "estimatedReductionTco2e": 0.5,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-13",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
+        "lat": 34.75,
+        "lon": 126.5,
+        "observationCount": 34,
+        "meanCh4": 110.0828,
+        "totalCh4": 3742.8166,
+        "minCh4": 4.594,
+        "maxCh4": 285.5742,
+        "latestCh4CsvUnits": 10.9996,
+        "estimatedReductionTco2e": 104.7989,
+        "baselineTco2eExample": 148.9144,
+        "latestNdwiProxy": 0.4754,
+        "dataSource": "data/ch4_predictions.csv",
+        "climateSource": "data/climate_observations.csv",
+        "satelliteSource": "Sentinel-2 cloudless 2024 by EOX (Contains modified Copernicus Sentinel data)",
+        "lastUpdate": "2025-12-30",
+        "notes": "위경도·시간·CH4_추정량 기반 CSV 업로드 데모. 실제 필지 경계·농가정보는 익명화/대체 필요."
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              126.88852297934093,
-              35.79967079990361
+              126.49945334721428,
+              34.74977390706676
             ],
             [
-              126.89189368590633,
-              35.79995693798217
+              126.50054665278572,
+              34.74977390706676
             ],
             [
-              126.89207109151502,
-              35.80253218068917
+              126.50054665278572,
+              34.75022609293324
             ],
             [
-              126.88861168214528,
-              35.802389111649894
+              126.49945334721428,
+              34.75022609293324
             ],
             [
-              126.88852297934093,
-              35.79967079990361
+              126.49945334721428,
+              34.74977390706676
             ]
           ]
         ]
@@ -667,49 +66,60 @@
     {
       "type": "Feature",
       "properties": {
-        "parcelId": "KR-RICE-014",
+        "parcelId": "FIELD-002",
+        "serial": "002",
         "farmerCode": "F-002",
-        "region": "Cheorwon",
-        "farmName": "Cheorwon AWD Plot 14",
-        "areaHa": 1.21,
+        "region": "전북 김제권",
+        "regionEn": "Gimje cluster",
+        "farmName": "전북 김제권 AWD 분석 부지 002",
+        "areaHa": 0.5,
+        "footprint": "100m x 50m demo footprint",
         "crop": "rice",
-        "status": "MISSING",
-        "awdScore": 26,
-        "evidenceRate": 30,
+        "status": "WATCH",
+        "awdScoreExample": 64,
+        "awdScoreTag": "for example",
+        "evidenceRate": 76,
         "buyerCandidate": true,
-        "lat": 35.801172,
-        "lon": 126.895513,
-        "latestCh4CsvUnits": 6.89,
-        "latestNdwi": 0.09,
-        "baselineTco2e": 2.92,
-        "estimatedReductionTco2e": 0.34,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-14",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
+        "lat": 35.75,
+        "lon": 126.75,
+        "observationCount": 32,
+        "meanCh4": 101.3878,
+        "totalCh4": 3244.4082,
+        "minCh4": 4.4251,
+        "maxCh4": 297.09,
+        "latestCh4CsvUnits": 10.3102,
+        "estimatedReductionTco2e": 90.8434,
+        "baselineTco2eExample": 129.0977,
+        "latestNdwiProxy": 0.5045,
+        "dataSource": "data/ch4_predictions.csv",
+        "climateSource": "data/climate_observations.csv",
+        "satelliteSource": "Sentinel-2 cloudless 2024 by EOX (Contains modified Copernicus Sentinel data)",
+        "lastUpdate": "2025-12-30",
+        "notes": "위경도·시간·CH4_추정량 기반 CSV 업로드 데모. 실제 필지 경계·농가정보는 익명화/대체 필요."
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              126.89380811619084,
-              35.79979668562828
+              126.74944656236218,
+              35.74977390706676
             ],
             [
-              126.89704761619085,
-              35.80007168562828
+              126.75055343763782,
+              35.74977390706676
             ],
             [
-              126.89721811619084,
-              35.802546685628286
+              126.75055343763782,
+              35.75022609293324
             ],
             [
-              126.89389336619084,
-              35.802409185628285
+              126.74944656236218,
+              35.75022609293324
             ],
             [
-              126.89380811619084,
-              35.79979668562828
+              126.74944656236218,
+              35.74977390706676
             ]
           ]
         ]
@@ -718,49 +128,60 @@
     {
       "type": "Feature",
       "properties": {
-        "parcelId": "KR-RICE-015",
+        "parcelId": "FIELD-003",
+        "serial": "003",
         "farmerCode": "F-003",
-        "region": "Icheon",
-        "farmName": "Icheon AWD Plot 15",
-        "areaHa": 1.33,
+        "region": "충남 예산권",
+        "regionEn": "Yesan cluster",
+        "farmName": "충남 예산권 AWD 분석 부지 003",
+        "areaHa": 0.5,
+        "footprint": "100m x 50m demo footprint",
         "crop": "rice",
-        "status": "AWD_GOOD",
-        "awdScore": 79,
-        "evidenceRate": 93,
-        "buyerCandidate": true,
-        "lat": 35.805635,
-        "lon": 126.864119,
-        "latestCh4CsvUnits": 8.75,
-        "latestNdwi": -0.06,
-        "baselineTco2e": 3.06,
-        "estimatedReductionTco2e": 1.09,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-15",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
+        "status": "WATCH",
+        "awdScoreExample": 74,
+        "awdScoreTag": "for example",
+        "evidenceRate": 76,
+        "buyerCandidate": false,
+        "lat": 36.75,
+        "lon": 126.75,
+        "observationCount": 31,
+        "meanCh4": 91.5384,
+        "totalCh4": 2837.6889,
+        "minCh4": 4.1688,
+        "maxCh4": 314.6275,
+        "latestCh4CsvUnits": 10.5524,
+        "estimatedReductionTco2e": 79.4553,
+        "baselineTco2eExample": 112.9265,
+        "latestNdwiProxy": 0.5295,
+        "dataSource": "data/ch4_predictions.csv",
+        "climateSource": "data/climate_observations.csv",
+        "satelliteSource": "Sentinel-2 cloudless 2024 by EOX (Contains modified Copernicus Sentinel data)",
+        "lastUpdate": "2025-12-30",
+        "notes": "위경도·시간·CH4_추정량 기반 CSV 업로드 데모. 실제 필지 경계·농가정보는 익명화/대체 필요."
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              126.86233143062938,
-              35.804193345833575
+              126.74943943407148,
+              36.74977390706676
             ],
             [
-              126.86572777031351,
-              35.80448165989844
+              126.75056056592852,
+              36.74977390706676
             ],
             [
-              126.86590652503372,
-              35.80707648648224
+              126.75056056592852,
+              36.75022609293324
             ],
             [
-              126.86242080798948,
-              35.80693232944981
+              126.74943943407148,
+              36.75022609293324
             ],
             [
-              126.86233143062938,
-              35.804193345833575
+              126.74943943407148,
+              36.74977390706676
             ]
           ]
         ]
@@ -769,49 +190,60 @@
     {
       "type": "Feature",
       "properties": {
-        "parcelId": "KR-RICE-016",
+        "parcelId": "FIELD-004",
+        "serial": "004",
         "farmerCode": "F-004",
-        "region": "Gimje",
-        "farmName": "Gimje AWD Plot 16",
-        "areaHa": 1.4,
+        "region": "경기 평택권",
+        "regionEn": "Pyeongtaek cluster",
+        "farmName": "경기 평택권 AWD 분석 부지 004",
+        "areaHa": 0.5,
+        "footprint": "100m x 50m demo footprint",
         "crop": "rice",
         "status": "AWD_GOOD",
-        "awdScore": 90,
-        "evidenceRate": 79,
+        "awdScoreExample": 78,
+        "awdScoreTag": "for example",
+        "evidenceRate": 92,
         "buyerCandidate": true,
-        "lat": 35.805629,
-        "lon": 126.870032,
-        "latestCh4CsvUnits": 10.26,
-        "latestNdwi": -0.25,
-        "baselineTco2e": 3.08,
-        "estimatedReductionTco2e": 1.25,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-16",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
+        "lat": 37.0,
+        "lon": 127.0,
+        "observationCount": 31,
+        "meanCh4": 88.1277,
+        "totalCh4": 2731.9574,
+        "minCh4": 4.345,
+        "maxCh4": 301.7499,
+        "latestCh4CsvUnits": 10.2935,
+        "estimatedReductionTco2e": 76.4948,
+        "baselineTco2eExample": 108.7226,
+        "latestNdwiProxy": 0.547,
+        "dataSource": "data/ch4_predictions.csv",
+        "climateSource": "data/climate_observations.csv",
+        "satelliteSource": "Sentinel-2 cloudless 2024 by EOX (Contains modified Copernicus Sentinel data)",
+        "lastUpdate": "2025-12-30",
+        "notes": "위경도·시간·CH4_추정량 기반 CSV 업로드 데모. 실제 필지 경계·농가정보는 익명화/대체 필요."
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              126.8681981287243,
-              35.80414991627668
+              126.99943759627284,
+              36.99977390706676
             ],
             [
-              126.87168269971654,
-              35.80444572026583
+              127.00056240372716,
+              36.99977390706676
             ],
             [
-              126.87186609818981,
-              35.80710795616823
+              127.00056240372716,
+              37.00022609293324
             ],
             [
-              126.86828982796094,
-              35.80696005417365
+              126.99943759627284,
+              37.00022609293324
             ],
             [
-              126.8681981287243,
-              35.80414991627668
+              126.99943759627284,
+              36.99977390706676
             ]
           ]
         ]
@@ -820,610 +252,60 @@
     {
       "type": "Feature",
       "properties": {
-        "parcelId": "KR-RICE-017",
+        "parcelId": "FIELD-005",
+        "serial": "005",
         "farmerCode": "F-005",
-        "region": "Cheorwon",
-        "farmName": "Cheorwon AWD Plot 17",
-        "areaHa": 1.42,
+        "region": "강원 철원권",
+        "regionEn": "Cheorwon cluster",
+        "farmName": "강원 철원권 AWD 분석 부지 005",
+        "areaHa": 0.5,
+        "footprint": "100m x 50m demo footprint",
         "crop": "rice",
         "status": "AWD_GOOD",
-        "awdScore": 94,
-        "evidenceRate": 88,
+        "awdScoreExample": 90,
+        "awdScoreTag": "for example",
+        "evidenceRate": 92,
         "buyerCandidate": false,
-        "lat": 35.804951,
-        "lon": 126.875125,
-        "latestCh4CsvUnits": 10.84,
-        "latestNdwi": -0.12,
-        "baselineTco2e": 3.75,
-        "estimatedReductionTco2e": 1.59,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-17",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
+        "lat": 38.0,
+        "lon": 127.25,
+        "observationCount": 43,
+        "meanCh4": 76.3715,
+        "totalCh4": 3283.9764,
+        "minCh4": 16.4386,
+        "maxCh4": 319.0652,
+        "latestCh4CsvUnits": 21.6018,
+        "estimatedReductionTco2e": 91.9513,
+        "baselineTco2eExample": 130.6709,
+        "latestNdwiProxy": 0.5412,
+        "dataSource": "data/ch4_predictions.csv",
+        "climateSource": "data/climate_observations.csv",
+        "satelliteSource": "Sentinel-2 cloudless 2024 by EOX (Contains modified Copernicus Sentinel data)",
+        "lastUpdate": "2025-12-30",
+        "notes": "위경도·시간·CH4_추정량 기반 CSV 업로드 데모. 실제 필지 경계·농가정보는 익명화/대체 필요."
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              126.87327779510912,
-              35.803461822406135
+              127.24943001337806,
+              37.99977390706676
             ],
             [
-              126.87678716763138,
-              35.803759731788325
+              127.25056998662194,
+              37.99977390706676
             ],
             [
-              126.87697187144835,
-              35.806440916228084
+              127.25056998662194,
+              38.00022609293324
             ],
             [
-              126.8733701470176,
-              35.806291961536985
+              127.24943001337806,
+              38.00022609293324
             ],
             [
-              126.87327779510912,
-              35.803461822406135
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-018",
-        "farmerCode": "F-006",
-        "region": "Icheon",
-        "farmName": "Icheon AWD Plot 18",
-        "areaHa": 0.85,
-        "crop": "rice",
-        "status": "WATCH",
-        "awdScore": 58,
-        "evidenceRate": 53,
-        "buyerCandidate": true,
-        "lat": 35.805047,
-        "lon": 126.880238,
-        "latestCh4CsvUnits": 7.43,
-        "latestNdwi": 0.15,
-        "baselineTco2e": 2.37,
-        "estimatedReductionTco2e": 0.62,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-18",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.87880876670675,
-              35.803894506100285
-            ],
-            [
-              126.88152392254942,
-              35.804124994711714
-            ],
-            [
-              126.88166682548851,
-              35.8061993922146
-            ],
-            [
-              126.87888021817629,
-              35.80608414790889
-            ],
-            [
-              126.87880876670675,
-              35.803894506100285
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-019",
-        "farmerCode": "F-007",
-        "region": "Gimje",
-        "farmName": "Gimje AWD Plot 19",
-        "areaHa": 0.73,
-        "crop": "rice",
-        "status": "WATCH",
-        "awdScore": 70,
-        "evidenceRate": 53,
-        "buyerCandidate": true,
-        "lat": 35.805111,
-        "lon": 126.885133,
-        "latestCh4CsvUnits": 8.46,
-        "latestNdwi": -0.22,
-        "baselineTco2e": 1.86,
-        "estimatedReductionTco2e": 0.59,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-19",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.8838082670922,
-              35.80404291275545
-            ],
-            [
-              126.8863244761952,
-              35.804256512849086
-            ],
-            [
-              126.88645690825325,
-              35.80617891369178
-            ],
-            [
-              126.88387448312123,
-              35.806072113644966
-            ],
-            [
-              126.8838082670922,
-              35.80404291275545
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-020",
-        "farmerCode": "F-008",
-        "region": "Cheorwon",
-        "farmName": "Cheorwon AWD Plot 20",
-        "areaHa": 0.89,
-        "crop": "rice",
-        "status": "RISK",
-        "awdScore": 31,
-        "evidenceRate": 35,
-        "buyerCandidate": true,
-        "lat": 35.805448,
-        "lon": 126.890573,
-        "latestCh4CsvUnits": 11.75,
-        "latestNdwi": -0.11,
-        "baselineTco2e": 2.16,
-        "estimatedReductionTco2e": 0.3,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-20",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.88911104384154,
-              35.80426883399921
-            ],
-            [
-              126.89188935128493,
-              35.80450468352751
-            ],
-            [
-              126.89203557799247,
-              35.80662732928223
-            ],
-            [
-              126.88918415719532,
-              35.806509404518074
-            ],
-            [
-              126.88911104384154,
-              35.80426883399921
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-021",
-        "farmerCode": "F-009",
-        "region": "Icheon",
-        "farmName": "Icheon AWD Plot 21",
-        "areaHa": 1.3,
-        "crop": "rice",
-        "status": "MISSING",
-        "awdScore": 9,
-        "evidenceRate": 30,
-        "buyerCandidate": false,
-        "lat": 35.805513,
-        "lon": 126.895216,
-        "latestCh4CsvUnits": 11.97,
-        "latestNdwi": 0.04,
-        "baselineTco2e": 2.99,
-        "estimatedReductionTco2e": 0.12,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-21",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.89344892823146,
-              35.804087544336966
-            ],
-            [
-              126.89680674485838,
-              35.80437258819324
-            ],
-            [
-              126.89698347204927,
-              35.80693798289971
-            ],
-            [
-              126.8935372918269,
-              35.80679546097158
-            ],
-            [
-              126.89344892823146,
-              35.804087544336966
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-022",
-        "farmerCode": "F-010",
-        "region": "Gimje",
-        "farmName": "Gimje AWD Plot 22",
-        "areaHa": 1.27,
-        "crop": "rice",
-        "status": "AWD_GOOD",
-        "awdScore": 87,
-        "evidenceRate": 95,
-        "buyerCandidate": true,
-        "lat": 35.810106,
-        "lon": 126.864207,
-        "latestCh4CsvUnits": 9.83,
-        "latestNdwi": 0.37,
-        "baselineTco2e": 3.1,
-        "estimatedReductionTco2e": 1.21,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-22",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.86246070026363,
-              35.80869765813326
-            ],
-            [
-              126.86577954671232,
-              35.808979393825
-            ],
-            [
-              126.8659542228412,
-              35.81151501505065
-            ],
-            [
-              126.86254803832806,
-              35.81137414720479
-            ],
-            [
-              126.86246070026363,
-              35.80869765813326
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-023",
-        "farmerCode": "F-011",
-        "region": "Cheorwon",
-        "farmName": "Cheorwon AWD Plot 23",
-        "areaHa": 1.42,
-        "crop": "rice",
-        "status": "AWD_GOOD",
-        "awdScore": 91,
-        "evidenceRate": 95,
-        "buyerCandidate": true,
-        "lat": 35.810207,
-        "lon": 126.869644,
-        "latestCh4CsvUnits": 12.61,
-        "latestNdwi": -0.27,
-        "baselineTco2e": 3.39,
-        "estimatedReductionTco2e": 1.39,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-23",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.86779662119584,
-              35.80871745269427
-            ],
-            [
-              126.8713059937181,
-              35.80901536207646
-            ],
-            [
-              126.87149069753507,
-              35.81169654651622
-            ],
-            [
-              126.86788897310431,
-              35.81154759182512
-            ],
-            [
-              126.86779662119584,
-              35.80871745269427
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-024",
-        "farmerCode": "F-012",
-        "region": "Icheon",
-        "farmName": "Icheon AWD Plot 24",
-        "areaHa": 1.32,
-        "crop": "rice",
-        "status": "AWD_GOOD",
-        "awdScore": 82,
-        "evidenceRate": 91,
-        "buyerCandidate": true,
-        "lat": 35.810083,
-        "lon": 126.87498,
-        "latestCh4CsvUnits": 11.35,
-        "latestNdwi": 0.29,
-        "baselineTco2e": 3.39,
-        "estimatedReductionTco2e": 1.25,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-24",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.87319875614476,
-              35.80864638711948
-            ],
-            [
-              126.87658230354357,
-              35.8089336152518
-            ],
-            [
-              126.87676038498562,
-              35.811518668442744
-            ],
-            [
-              126.87328779686578,
-              35.81137505437658
-            ],
-            [
-              126.87319875614476,
-              35.80864638711948
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-025",
-        "farmerCode": "F-001",
-        "region": "Gimje",
-        "farmName": "Gimje AWD Plot 25",
-        "areaHa": 1.36,
-        "crop": "rice",
-        "status": "WATCH",
-        "awdScore": 65,
-        "evidenceRate": 56,
-        "buyerCandidate": false,
-        "lat": 35.810104,
-        "lon": 126.879629,
-        "latestCh4CsvUnits": 11.08,
-        "latestNdwi": 0.23,
-        "baselineTco2e": 3.65,
-        "estimatedReductionTco2e": 1.07,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-25",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.87782179153292,
-              35.80864629908368
-            ],
-            [
-              126.88125622219899,
-              35.80893784667842
-            ],
-            [
-              126.88143698170772,
-              35.811561775031095
-            ],
-            [
-              126.87791217128729,
-              35.811416001233724
-            ],
-            [
-              126.87782179153292,
-              35.80864629908368
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-026",
-        "farmerCode": "F-002",
-        "region": "Cheorwon",
-        "farmName": "Cheorwon AWD Plot 26",
-        "areaHa": 1.12,
-        "crop": "rice",
-        "status": "WATCH",
-        "awdScore": 72,
-        "evidenceRate": 63,
-        "buyerCandidate": true,
-        "lat": 35.809995,
-        "lon": 126.884981,
-        "latestCh4CsvUnits": 9.06,
-        "latestNdwi": 0.02,
-        "baselineTco2e": 2.66,
-        "estimatedReductionTco2e": 0.86,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-01",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.88334024469228,
-              35.80867205457972
-            ],
-            [
-              126.88645693973672,
-              35.80893662971083
-            ],
-            [
-              126.886620976318,
-              35.81131780589079
-            ],
-            [
-              126.88342226298292,
-              35.81118551832523
-            ],
-            [
-              126.88334024469228,
-              35.80867205457972
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-027",
-        "farmerCode": "F-003",
-        "region": "Icheon",
-        "farmName": "Icheon AWD Plot 27",
-        "areaHa": 1.39,
-        "crop": "rice",
-        "status": "RISK",
-        "awdScore": 41,
-        "evidenceRate": 51,
-        "buyerCandidate": true,
-        "lat": 35.80977,
-        "lon": 126.890075,
-        "latestCh4CsvUnits": 12.38,
-        "latestNdwi": 0.21,
-        "baselineTco2e": 3.27,
-        "estimatedReductionTco2e": 0.6,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-02",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.88824798723513,
-              35.80829632865361
-            ],
-            [
-              126.89172009102822,
-              35.808591074306676
-            ],
-            [
-              126.89190283333312,
-              35.811243785184246
-            ],
-            [
-              126.88833935838758,
-              35.81109641235771
-            ],
-            [
-              126.88824798723513,
-              35.80829632865361
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "parcelId": "KR-RICE-028",
-        "farmerCode": "F-004",
-        "region": "Gimje",
-        "farmName": "Gimje AWD Plot 28",
-        "areaHa": 1.38,
-        "crop": "rice",
-        "status": "MISSING",
-        "awdScore": 15,
-        "evidenceRate": 39,
-        "buyerCandidate": true,
-        "lat": 35.809933,
-        "lon": 126.895429,
-        "latestCh4CsvUnits": 8.76,
-        "latestNdwi": 0.01,
-        "baselineTco2e": 3.13,
-        "estimatedReductionTco2e": 0.21,
-        "dataSource": "Demo Sentinel/Landsat proxy",
-        "lastUpdate": "2026-08-03",
-        "notes": "Demo parcel. Coordinates and values are anonymized sample data."
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              126.8936078341336,
-              35.80846432107866
-            ],
-            [
-              126.89706742580026,
-              35.808758004581776
-            ],
-            [
-              126.89724950957219,
-              35.81140115610978
-            ],
-            [
-              126.89369887601957,
-              35.81125431435822
-            ],
-            [
-              126.8936078341336,
-              35.80846432107866
+              127.24943001337806,
+              37.99977390706676
             ]
           ]
         ]

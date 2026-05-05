@@ -1,89 +1,120 @@
 # Agri-I AWD dMRV Dashboard Prototype
 
-GitHub Pages에 바로 배포할 수 있는 정적 웹 프로토타입입니다. 서버, 데이터베이스, 로그인, API Key 없이 `index.html + assets + data`만으로 동작합니다.
+피드백 반영 버전입니다. GitHub Pages에서 바로 배포할 수 있는 정적 웹앱입니다.
 
-## 구현 범위
+## 반영 사항
 
-- Landing
-- Dashboard
-- Parcels
-- Monitoring
-- Evidence Data Room
-- 바이어 리포트(Mock-Up)
-- Product Passport(Mock-Up)
-- Methodology / Guide
+- `2.jpg`를 `assets/images/agri-i-logo.jpg`로 반영했고, 사이드바/파비콘용 정사각 크롭 `assets/images/agri-i-logo-square.jpg`도 생성했습니다.
+- Scenario 선택 옵션을 제거했습니다.
+- 필지 수는 `ch4_predictions.csv`의 고유 위도/경도 위치 수로 계산합니다.
+- 기존 `Parcels` 패널을 `Data Processing` 패널로 변경했습니다.
+- `위도|경도|시작시간|종료시간`을 Key로 사용하고, 중복 Key 발견 시 관리자 선택 모달을 띄웁니다.
+- `AWD Score`는 실제 인증 점수가 아니라 CSV 기반 상대지표이므로 화면 전체에 `AWD Score (for example)` 또는 `for example` 태그를 표시했습니다.
+- Dashboard는 `Home`과 `Search Result` 두 형태로 구성했습니다.
+  - Home: 한반도 전체 Sentinel-2 Cloudless 위성뷰, 전체 요약, AWD 점검 대상, 한국 기후 데이터.
+  - Search Result: 선택 부지 중심 Sentinel-2 위성뷰와 100m × 50m footprint, 지역 기후 데이터, 감축량 요약.
+- Monitoring/Evidence의 필드 선택 UI를 검색형으로 변경했습니다. 검색은 위도, 경도, 지역, 일련번호, Field ID로 가능합니다.
+- Temperature/Rainfall 그래프는 `data/climate_observations.csv`를 사용하며, 그래프에 데이터 위치와 출처를 표시합니다.
 
-## 실행 방법
+## 파일 구조
 
-로컬에서 확인하려면 저장소 루트에서 아래 명령을 실행합니다.
+```text
+agri-i-awd-dmrv-dashboard/
+├─ index.html
+├─ assets/
+│  ├─ css/styles.css
+│  ├─ images/agri-i-logo.jpg
+│  ├─ images/agri-i-logo-square.jpg
+│  └─ js/
+│     ├─ app.js
+│     ├─ data.js
+│     └─ gee-config.js
+├─ data/
+│  ├─ ch4_predictions.csv
+│  ├─ climate_observations.csv
+│  ├─ korea_climate_summary.csv
+│  ├─ parcels.geojson
+│  ├─ observations.json
+│  ├─ evidence.json
+│  └─ buyer_lots.json
+├─ .github/workflows/pages.yml
+├─ .nojekyll
+├─ package.json
+└─ README.md
+```
+
+## 로컬 실행
+
+```bash
+npm run start
+```
+
+또는
 
 ```bash
 python3 -m http.server 5173
 ```
 
-브라우저에서 아래 주소로 접속합니다.
+브라우저에서 `http://localhost:5173` 접속.
 
-```text
-http://localhost:5173
+## 문법 검사
+
+```bash
+npm run check
 ```
-
-파일을 더블클릭해도 기본 화면은 열리지만, 실제 배포 전에는 위 방식으로 확인하는 것을 권장합니다.
 
 ## GitHub Pages 배포
 
-### 방법 A: GitHub Actions
-
-1. GitHub에 public repository를 생성합니다.
-2. 이 폴더의 모든 파일을 repository 루트에 커밋합니다.
-3. Settings → Pages → Source를 `GitHub Actions`로 설정합니다.
-4. main 브랜치에 push하면 `.github/workflows/pages.yml`이 자동 배포합니다.
-
-### 방법 B: Branch 배포
-
-1. Settings → Pages → Source를 `Deploy from a branch`로 설정합니다.
-2. Branch는 `main`, folder는 `/root`를 선택합니다.
-3. 저장 후 GitHub Pages URL로 접속합니다.
-
-## 데이터 교체
-
-앱은 기본적으로 `assets/js/data.js`의 `window.AGRII_DATA`를 읽어 동작합니다. 외부 fetch가 없어 GitHub Pages와 file preview 모두 안정적으로 열립니다.
-
-보조 데이터 파일은 `data/`에 따로 포함되어 있습니다.
-
-- `data/parcels.geojson`
-- `data/observations.json`
-- `data/evidence.json`
-- `data/buyer_lots.json`
-- `data/scenarios.json`
-
-운영 전에는 실제 농가 개인정보, 원본 좌표, 연락처, 계약정보, 수익배분 정보, API Key를 절대 커밋하지 마세요. public repository를 기준으로 샘플·익명화 데이터만 사용해야 합니다.
-
-## CSV Import 형식
-
-Parcels 화면의 CSV 가져오기는 아래 열을 지원합니다.
-
-```csv
-parcelId,status,awdScore,evidenceRate,buyerCandidate
-KR-RICE-001,AWD_GOOD,88,92,true
-KR-RICE-002,WATCH,65,70,true
+```bash
+git init
+git add .
+git commit -m "Update Agri-I feedback build"
+git branch -M main
+git remote add origin https://github.com/<YOUR_ACCOUNT>/<YOUR_REPO>.git
+git push -u origin main
 ```
 
-수정값은 서버에 저장되지 않고 브라우저 `localStorage`에만 저장됩니다.
+GitHub repository에서 `Settings → Pages → Source: GitHub Actions`를 선택하면 됩니다.
 
-## PDF 생성
+## CSV 입력 구조
 
-바이어 리포트(Mock-Up) 화면에서 `PDF로 저장/인쇄` 버튼을 누른 뒤 브라우저 인쇄 창에서 `PDF로 저장`을 선택합니다. 서버 PDF 라이브러리를 쓰지 않습니다.
+`Data Processing` 화면에서 업로드할 CSV는 아래 구조를 사용합니다.
 
-## 필요한 정보 / Key
+```csv
+위도,경도,시작시간,종료시간,CH4_추정량
+34.75,126.5,2025-01-01,2025-01-07,10.716751
+```
 
-- API Key: 필요 없음
-- Server: 필요 없음
-- Database: 필요 없음
-- GitHub Secrets: 필요 없음
-- Custom domain: 선택 사항
-- 실제 지도 타일: 사용하지 않음
-- 외부 CDN: 사용하지 않음
+중복 Key는 다음 조합입니다.
 
-## 주의 문구
+```text
+위도|경도|시작시간|종료시간
+```
 
-이 프로토타입은 공식 인증서 또는 탄소크레딧 발행 시스템이 아닙니다. AI/모델 결과는 MRV 자료 생성과 검증 비용 절감을 지원하는 보조 지표로만 표시해야 합니다.
+중복 발견 시 선택 가능한 처리 방식:
+
+- 첫 행 유지
+- 마지막 행 유지
+- CH4 평균값 사용
+- 업로드 취소
+
+## 데이터 출처 표기
+
+현재 웹앱에는 세 종류의 데이터 출처 표기가 들어갑니다.
+
+1. CH4 prediction: `data/ch4_predictions.csv` — 사용자 제공 CSV.
+2. Satellite view: Sentinel-2 Cloudless 2024 by EOX. Contains modified Copernicus Sentinel data 2024.
+3. Climate chart: `data/climate_observations.csv` — 데모 CSV. 실제 서비스에서는 Copernicus ERA5 single-levels 또는 기상청 ASOS/AWS 자료로 교체하는 구조입니다.
+
+## GEE API 메모
+
+현재 빌드는 비용과 키 노출 리스크를 줄이기 위해 API Key가 필요 없는 Sentinel-2 Cloudless tile layer를 사용합니다. `assets/js/gee-config.js`는 GEE 전환용 자리만 마련해둔 파일입니다.
+
+GitHub Pages에서 직접 GEE live tile을 쓰려면 일반적으로 다음 설정이 필요합니다.
+
+- Google Cloud Project ID
+- Earth Engine API 사용 권한
+- OAuth 2.0 Client ID
+- Authorized JavaScript origins에 GitHub Pages 도메인 등록
+
+실제 농가 개인정보, 계약정보, 원본 민감 좌표, API Key, `.env` 파일은 public repository에 커밋하지 마세요.

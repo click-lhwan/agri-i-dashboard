@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Agri-I AWD 기반 저탄소농업 dMRV 운영 대시보드 프로토타입" />
     <title>Agri-I | AWD dMRV Dashboard</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2300482a'/%3E%3Cpath d='M16 43c11-1 23-10 30-28 2 20-7 33-26 37' fill='none' stroke='%23f3c54a' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M22 45c5-10 9-17 18-25' fill='none' stroke='%23a6d86e' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="icon" href="assets/images/agri-i-logo-square.jpg" />
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
@@ -13,7 +13,7 @@
     <div class="app-shell">
       <aside class="sidebar" aria-label="Agri-I navigation">
         <div class="brand" data-route="#/">
-          <div class="brand-mark" aria-hidden="true">🌾</div>
+          <img class="brand-logo" src="assets/images/agri-i-logo-square.jpg" alt="Agri-I logo" />
           <div>
             <div class="brand-title">Agri-I</div>
             <div class="brand-subtitle">AWD dMRV<br />for Low-Carbon Rice</div>
@@ -22,7 +22,7 @@
 
         <nav class="nav-list" id="navList">
           <a href="#/dashboard" data-route="dashboard"><span>▦</span> Dashboard</a>
-          <a href="#/parcels" data-route="parcels"><span>▱</span> Parcels</a>
+          <a href="#/data-processing" data-route="data-processing"><span>⇪</span> Data Processing</a>
           <a href="#/monitoring" data-route="monitoring"><span>⌁</span> Monitoring</a>
           <a href="#/evidence" data-route="evidence"><span>☷</span> Evidence</a>
           <a href="#/buyer-report" data-route="buyer-report"><span>▤</span> 바이어 리포트(Mock-Up)</a>
@@ -36,15 +36,15 @@
         </nav>
 
         <div class="side-card">
-          <strong>🌱 30ha pilot mode</strong>
-          <span>Demo data only. No server, no DB, no API key.</span>
+          <strong>CSV-driven pilot</strong>
+          <span>Field count is calculated from unique latitude/longitude pairs in <code>ch4_predictions.csv</code>.</span>
         </div>
 
         <div class="team-card">
           <div class="avatar">AI</div>
           <div>
             <strong>Agri-I Team</strong>
-            <span>demo@agri-i.local</span>
+            <span>static GitHub Pages demo</span>
           </div>
         </div>
       </aside>
@@ -56,11 +56,8 @@
             <h1 id="pageTitle">Dashboard</h1>
           </div>
           <div class="top-actions">
-            <label class="scenario-picker">
-              <span>Scenario</span>
-              <select id="scenarioSelect" aria-label="Scenario select"></select>
-            </label>
-            <button class="btn ghost" id="resetDemoBtn" type="button">Reset demo</button>
+            <span class="top-chip" id="datasetStatus">CSV loaded</span>
+            <button class="btn ghost" id="resetDemoBtn" type="button">Reset uploaded data</button>
           </div>
         </header>
         <section id="app" class="page-root" aria-live="polite"></section>
@@ -68,6 +65,8 @@
     </div>
 
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="modalRoot" class="modal-root" aria-live="assertive"></div>
+    <script src="assets/js/gee-config.js"></script>
     <script src="assets/js/data.js"></script>
     <script src="assets/js/app.js"></script>
   </body>
