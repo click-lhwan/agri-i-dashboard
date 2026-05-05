@@ -4,7 +4,7 @@
 
 ## 반영 사항
 
-- `2.jpg`를 `assets/images/agri-i-logo.jpg`로 반영했고, 사이드바/파비콘용 정사각 크롭 `assets/images/agri-i-logo-square.jpg`도 생성했습니다.
+- `2.jpg`를 `assets/images/agri-i-logo.jpg`로 반영했습니다. 사이드바는 이미지가 삐져나오지 않도록 64×64 자연 크기의 `assets/images/agri-i-logo-sidebar.jpg`를 사용하고, 파비콘용 `assets/images/agri-i-logo-square.jpg`도 96×96으로 축소했습니다.
 - Scenario 선택 옵션을 제거했습니다.
 - 필지 수는 `ch4_predictions.csv`의 고유 위도/경도 위치 수로 계산합니다.
 - 기존 `Parcels` 패널을 `Data Processing` 패널로 변경했습니다.
@@ -16,6 +16,14 @@
 - Monitoring/Evidence의 필드 선택 UI를 검색형으로 변경했습니다. 검색은 위도, 경도, 지역, 일련번호, Field ID로 가능합니다.
 - Temperature/Rainfall 그래프는 `data/climate_observations.csv`를 사용하며, 그래프에 데이터 위치와 출처를 표시합니다.
 
+
+## 이번 긴급 수정 사항
+
+- 사이드바 로고에 `width`/`height` 속성과 inline size guard를 추가했습니다. CSS 캐시가 남아도 로고가 64×64를 넘지 않습니다.
+- `index.html`의 CSS/JS/image 링크에 cache-busting query string을 붙였습니다. GitHub Pages 배포 후에도 이전 CSS/JS 캐시가 덜 남습니다.
+- `app.js`를 ES5 호환 형태로 변환하고, `NodeList.forEach`, `replaceAll`, `Object.fromEntries`, `flatMap` 등 일부 구형 Chromium에서 빠질 수 있는 API polyfill을 추가했습니다.
+- 이전 업로드 CSV가 localStorage에 깨진 상태로 남아도 기본 `ch4_predictions.csv`로 자동 복구하도록 했습니다.
+
 ## 파일 구조
 
 ```text
@@ -25,6 +33,7 @@ agri-i-awd-dmrv-dashboard/
 │  ├─ css/styles.css
 │  ├─ images/agri-i-logo.jpg
 │  ├─ images/agri-i-logo-square.jpg
+│  ├─ images/agri-i-logo-sidebar.jpg
 │  └─ js/
 │     ├─ app.js
 │     ├─ data.js

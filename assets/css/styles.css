@@ -43,8 +43,9 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
   background: radial-gradient(circle at 32px 32px, rgba(255,255,255,0.08), transparent 22px), linear-gradient(180deg, var(--green-950), var(--green-900));
   box-shadow: 14px 0 28px rgba(0, 45, 29, 0.12); overflow-y: auto;
 }
-.brand { display: flex; gap: 13px; align-items: center; margin: 0 0 32px; user-select: none; cursor: pointer; }
-.brand-logo { width: 56px; height: 56px; border-radius: 18px; object-fit: cover; object-position: center center; background: rgba(255,255,255,0.1); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12), 0 10px 24px rgba(0,0,0,0.18); }
+.sidebar img { max-width: 100%; height: auto; }
+.brand { display: flex; gap: 13px; align-items: center; margin: 0 0 28px; user-select: none; cursor: pointer; min-height: 70px; overflow: hidden; }
+.sidebar img.brand-logo, img.brand-logo { width: 64px !important; height: 64px !important; max-width: 64px !important; max-height: 64px !important; min-width: 64px !important; min-height: 64px !important; flex: 0 0 64px !important; display: block !important; border-radius: 18px; object-fit: contain !important; object-position: center center; background: #fff; padding: 6px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18), 0 10px 24px rgba(0,0,0,0.18); }
 .brand-title { font-size: 31px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; }
 .brand-subtitle { margin-top: 7px; font-size: 15px; line-height: 1.22; color: rgba(246,255,249,0.78); }
 .nav-list { display: flex; flex-direction: column; gap: 9px; }
